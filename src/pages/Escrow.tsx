@@ -1,3 +1,5 @@
+import MobileBottomNav from "../components/MobileBottomNav";
+
 interface EscrowProps {
   darkMode: boolean;
   onMenuClick: () => void;
@@ -28,7 +30,7 @@ export default function Escrow({ darkMode, onMenuClick }: EscrowProps) {
         </div>
       </div>
       
-      <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl p-8 text-center`}>
+      <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl p-8 text-center mb-20`}>
         <h3 className={`text-xl font-semibold mb-4 ${
           darkMode ? "text-white" : "text-gray-800"
         }`}>Escrow Services</h3>
@@ -36,6 +38,8 @@ export default function Escrow({ darkMode, onMenuClick }: EscrowProps) {
           darkMode ? "text-gray-400" : "text-gray-600"
         }`}>Secure escrow functionality coming soon...</p>
       </div>
+      
+      <MobileBottomNav darkMode={darkMode} />
     </main>
   );
 }

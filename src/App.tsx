@@ -33,7 +33,7 @@ export default function App() {
           <Route path="/" element={<Home darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
           <Route path="/escrow" element={<Escrow darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
           <Route path="/transaction" element={<Transaction darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
-          <Route path="/settings" element={<Settings darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
+          <Route path="/settings" element={<Settings darkMode={darkMode} onMenuClick={toggleMobileNav} setDarkMode={setDarkMode} />} />
         </Routes>
       </div>
     </Router>

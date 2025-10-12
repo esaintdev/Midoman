@@ -4,11 +4,11 @@ import {
   FiFileText,
   FiCopy,
   FiPlus,
-  FiHome,
-  FiSettings,
-  FiCreditCard,
 } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import Header from "./Header";
+import DepositHistory from "./DepositHistory";
+import MobileBottomNav from "./MobileBottomNav";
 
 interface Account {
   balance: number;
@@ -23,14 +23,22 @@ interface MainContentProps {
 }
 
 export default function MainContent({ darkMode, account, onMenuClick }: MainContentProps) {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <main className="flex-1 bg-gray-50 min-h-screen lg:bg-transparent">
       <Header title="Home" onMenuClick={onMenuClick} darkMode={darkMode} />
 
-      {/* Mobile Layout */}
-      <div className="px-4 lg:px-8">
-        {/* Account info */}
-        <div className="bg-blue-600 text-white rounded-3xl p-6 mb-6 relative overflow-hidden">
+      {/* Dashboard Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-8 px-4 lg:px-8">
+        {/* Left section - Mobile: full width, Desktop: 3 columns */}
+        <div className="lg:col-span-3 space-y-6">
+          {/* Account info */}
+          <div className="bg-blue-600 text-white rounded-3xl p-6 relative overflow-hidden">
           {/* Top section */}
           <div className="flex justify-between items-start mb-8">
             <div>
@@ -62,7 +70,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
               </button>
             </div>
           </div>
-        </div>
+          </div>
 
         {/* Quick actions */}
         <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-3xl p-6 mb-6`}>
@@ -71,13 +79,14 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
           }`}>Quick actions</h4>
           <div className="grid grid-cols-4 gap-4">
             {[
-              { icon: <FiRotateCcw className="w-6 h-6" />, label: "Withdraw" },
-              { icon: <FiRotateCcw className="w-6 h-6" />, label: "Deposit" },
-              { icon: <FiLock className="w-6 h-6" />, label: "Escrow" },
-              { icon: <FiFileText className="w-6 h-6" />, label: "History" },
+              { icon: <FiRotateCcw className="w-6 h-6" />, label: "Withdraw", path: "/transaction" },
+              { icon: <FiRotateCcw className="w-6 h-6" />, label: "Deposit", path: "/transaction" },
+              { icon: <FiLock className="w-6 h-6" />, label: "Escrow", path: "/escrow" },
+              { icon: <FiFileText className="w-6 h-6" />, label: "History", path: "/transaction" },
             ].map((action, i) => (
               <button
                 key={i}
+                onClick={() => handleNavigation(action.path)}
                 className={`flex flex-col items-center space-y-3 transition group ${
                   darkMode ? "hover:text-blue-400" : "hover:text-blue-600"
                 }`}
@@ -125,50 +134,15 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
             />
           </div>
         </div>
+        </div>
 
-        {/* Bottom Navigation - Mobile Only */}
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 lg:hidden">
-          <div className="flex justify-around items-center">
-            <button className="flex flex-col items-center py-2 px-3">
-              <div className="w-6 h-6 mb-1 text-blue-600">
-                <FiHome className="w-full h-full" />
-              </div>
-              <span className="text-xs font-medium text-blue-600">Home</span>
-            </button>
-            
-            <button className="flex flex-col items-center py-2 px-3">
-              <div className="w-6 h-6 mb-1 text-gray-400">
-                <FiLock className="w-full h-full" />
-              </div>
-              <span className="text-xs font-medium text-gray-400">Escrow</span>
-            </button>
-            
-            <button className="flex flex-col items-center py-2 px-3 relative">
-              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mb-1">
-                <div className="w-6 h-6 text-white">
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                    <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-                  </svg>
-                </div>
-              </div>
-            </button>
-            
-            <button className="flex flex-col items-center py-2 px-3">
-              <div className="w-6 h-6 mb-1 text-gray-400">
-                <FiCreditCard className="w-full h-full" />
-              </div>
-              <span className="text-xs font-medium text-gray-400">Transaction</span>
-            </button>
-            
-            <button className="flex flex-col items-center py-2 px-3">
-              <div className="w-6 h-6 mb-1 text-gray-400">
-                <FiSettings className="w-full h-full" />
-              </div>
-              <span className="text-xs font-medium text-gray-400">Settings</span>
-            </button>
-          </div>
+        {/* Right section - Desktop: 3 columns, Mobile: below left content */}
+        <div className="lg:col-span-3">
+          <DepositHistory darkMode={darkMode} />
         </div>
       </div>
+
+      <MobileBottomNav darkMode={darkMode} />
     </main>
   );
 }
