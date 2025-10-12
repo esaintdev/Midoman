@@ -6,10 +6,9 @@ import {
   FiLogOut,
   FiMoon,
   FiSun,
-  FiRotateCcw,
-  FiPlus,
   FiCreditCard,
   FiX,
+  FiChevronRight,
 } from "react-icons/fi";
 
 interface MobileNavProps {
@@ -26,105 +25,126 @@ export default function MobileNav({ isOpen, onClose, darkMode, setDarkMode }: Mo
 
   if (!isOpen) return null;
 
+  const navItems = [
+    { path: "/", icon: FiHome, label: "Home", color: "bg-blue-500" },
+    { path: "/escrow", icon: FiLock, label: "Escrow", color: "bg-green-500" },
+    { path: "/transaction", icon: FiCreditCard, label: "Transaction", color: "bg-purple-500" },
+    { path: "/settings", icon: FiSettings, label: "Settings", color: "bg-gray-500" },
+  ];
+
   return (
     <>
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+        className="fixed inset-0 bg-black bg-opacity-60 z-40 lg:hidden"
         onClick={onClose}
       />
       
-      {/* Mobile Navigation */}
-      <div className="fixed top-0 left-0 h-full w-80 bg-white z-50 lg:hidden transform transition-transform duration-300 ease-in-out">
-        <div className="flex flex-col h-full p-6">
+      {/* Mobile Navigation - Full Screen Overlay */}
+      <div className="fixed inset-0 z-50 lg:hidden">
+        <div className="bg-white h-full flex flex-col">
           {/* Header */}
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M</span>
+          <div className="flex items-center justify-between p-6 border-b border-gray-100">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-lg">M</span>
               </div>
-              <h1 className="text-xl font-bold font-sans text-gray-800">Midoman</h1>
+              <div>
+                <h1 className="text-xl font-bold font-sans text-gray-900">Midoman</h1>
+                <p className="text-sm text-gray-500 font-sans">Dashboard</p>
+              </div>
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
+              className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
             >
               <FiX className="w-6 h-6 text-gray-600" />
             </button>
           </div>
           
-          {/* Navigation */}
-          <nav className="space-y-2 flex-1">
-            <Link 
-              to="/" 
-              onClick={onClose}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium font-sans transition ${
-                isActive("/") 
-                  ? "bg-blue-600 text-white" 
-                  : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
-              }`}
-            >
-              <FiHome className="w-5 h-5" /> Home
-            </Link>
-            <Link 
-              to="/escrow" 
-              onClick={onClose}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium font-sans transition ${
-                isActive("/escrow") 
-                  ? "bg-blue-600 text-white" 
-                  : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
-              }`}
-            >
-              <FiLock className="w-5 h-5" /> Escrow
-            </Link>
-            <Link 
-              to="/transaction" 
-              onClick={onClose}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium font-sans transition ${
-                isActive("/transaction") 
-                  ? "bg-blue-600 text-white" 
-                  : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
-              }`}
-            >
-              <FiCreditCard className="w-5 h-5" /> Transaction
-            </Link>
-            <Link 
-              to="/settings" 
-              onClick={onClose}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium font-sans transition ${
-                isActive("/settings") 
-                  ? "bg-blue-600 text-white" 
-                  : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
-              }`}
-            >
-              <FiSettings className="w-5 h-5" /> Settings
-            </Link>
-
-            <div className="mt-6">
-              <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium font-sans hover:bg-blue-700 flex items-center justify-center gap-2">
-                <FiPlus className="w-4 h-4" /> New features
-              </button>
+          {/* Navigation Items */}
+          <div className="flex-1 p-6">
+            <div className="space-y-4">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const active = isActive(item.path);
+                
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={onClose}
+                    className={`flex items-center justify-between p-4 rounded-2xl transition-all duration-200 ${
+                      active 
+                        ? "bg-blue-50 border-2 border-blue-200 shadow-sm" 
+                        : "bg-gray-50 hover:bg-gray-100 border-2 border-transparent"
+                    }`}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className={`w-12 h-12 ${active ? "bg-blue-600" : item.color} rounded-xl flex items-center justify-center shadow-sm`}>
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className={`font-semibold font-sans ${active ? "text-blue-900" : "text-gray-900"}`}>
+                          {item.label}
+                        </h3>
+                        <p className={`text-sm font-sans ${active ? "text-blue-600" : "text-gray-500"}`}>
+                          {item.path === "/" && "Dashboard overview"}
+                          {item.path === "/escrow" && "Secure transactions"}
+                          {item.path === "/transaction" && "Payment history"}
+                          {item.path === "/settings" && "App preferences"}
+                        </p>
+                      </div>
+                    </div>
+                    <FiChevronRight className={`w-5 h-5 ${active ? "text-blue-600" : "text-gray-400"}`} />
+                  </Link>
+                );
+              })}
             </div>
-          </nav>
+
+            {/* Quick Actions */}
+            <div className="mt-8">
+              <h4 className="text-sm font-semibold font-sans text-gray-500 uppercase tracking-wide mb-4">
+                Quick Actions
+              </h4>
+              <div className="grid grid-cols-2 gap-3">
+                <button className="p-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl text-white font-medium font-sans shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">💳</div>
+                    <span className="text-sm">Add Money</span>
+                  </div>
+                </button>
+                <button className="p-4 bg-gradient-to-r from-green-600 to-green-700 rounded-xl text-white font-medium font-sans shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">📊</div>
+                    <span className="text-sm">Analytics</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
 
           {/* Bottom Controls */}
-          <div className="space-y-4 border-t pt-4">
-            <div className="flex items-center gap-4">
+          <div className="p-6 border-t border-gray-100 bg-gray-50">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-sm font-medium font-sans text-gray-700">Theme</span>
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className={`p-2 rounded-lg ${darkMode ? "bg-gray-700" : "bg-gray-100"}`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors ${
+                  darkMode ? "bg-gray-800 text-white" : "bg-white text-gray-700 border border-gray-200"
+                }`}
               >
-                {darkMode ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
-              </button>
-              <button
-                onClick={() => setDarkMode(!darkMode)}
-                className={`p-2 rounded-lg ${darkMode ? "bg-gray-700" : "bg-gray-100"}`}
-              >
-                <FiRotateCcw className="w-5 h-5" />
+                {darkMode ? <FiMoon className="w-4 h-4" /> : <FiSun className="w-4 h-4" />}
+                <span className="text-sm font-sans">{darkMode ? "Dark" : "Light"}</span>
               </button>
             </div>
-            <button className="w-full text-red-500 flex items-center gap-2 hover:text-red-600 px-4 py-2 font-medium font-sans">
-              <FiLogOut className="w-5 h-5" /> Log out
+            
+            <button 
+              className="w-full flex items-center justify-center gap-2 p-3 text-red-600 hover:bg-red-50 rounded-xl transition-colors font-medium font-sans"
+              onClick={onClose}
+            >
+              <FiLogOut className="w-5 h-5" />
+              Sign Out
             </button>
           </div>
         </div>
