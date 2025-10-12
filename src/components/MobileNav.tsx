@@ -46,8 +46,12 @@ export default function MobileNav({ isOpen, onClose, darkMode, setDarkMode }: Mo
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-100">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">M</span>
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg p-2">
+                <img 
+                  src="/logo.png" 
+                  alt="Midoman Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <h1 className="text-xl font-bold font-sans text-gray-900">Midoman</h1>

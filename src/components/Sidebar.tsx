@@ -25,9 +25,11 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
     <aside className={`${darkMode ? "bg-gray-800" : "bg-white"} w-64 flex-col justify-between p-6 h-screen hidden lg:flex`}>
       <div>
         <div className="flex items-center gap-2 mb-12">
-          <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
-            <span className="text-white font-bold text-sm">M</span>
-          </div>
+          <img 
+            src="/logo.png" 
+            alt="Midoman Logo" 
+            className="w-8 h-8 object-contain"
+          />
           <h1 className="text-xl font-bold font-sans text-gray-800">Midoman</h1>
         </div>
         

@@ -84,8 +84,12 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
           <div className="bg-gradient-to-r from-orange-100 to-orange-50 p-4 md:p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-xs">M</span>
+                <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center p-1">
+                  <img 
+                    src="/logo.png" 
+                    alt="Midoman Logo" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <span className="text-sm font-medium font-sans text-gray-600">Midoman</span>
               </div>
