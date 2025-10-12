@@ -6,6 +6,9 @@ import Home from "./pages/Home";
 import Escrow from "./pages/Escrow";
 import Transaction from "./pages/Transaction";
 import Settings from "./pages/Settings";
+import Withdraw from "./pages/Withdraw";
+import Deposit from "./pages/Deposit";
+import History from "./pages/History";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(false);
@@ -21,7 +24,7 @@ export default function App() {
 
   return (
     <Router>
-      <div className={`${darkMode ? "bg-gray-900 text-gray-100" : "bg-gray-50 text-gray-800"} min-h-screen flex`}>
+      <div className={`${darkMode ? "bg-gray-900 text-gray-100" : "bg-gray-50 text-gray-800"} min-h-screen flex overflow-x-hidden`}>
         <Sidebar darkMode={darkMode} setDarkMode={setDarkMode} />
         <MobileNav 
           isOpen={isMobileNavOpen}
@@ -33,6 +36,9 @@ export default function App() {
           <Route path="/" element={<Home darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
           <Route path="/escrow" element={<Escrow darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
           <Route path="/transaction" element={<Transaction darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
+          <Route path="/withdraw" element={<Withdraw darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
+          <Route path="/deposit" element={<Deposit darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
+          <Route path="/history" element={<History darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
           <Route path="/settings" element={<Settings darkMode={darkMode} onMenuClick={toggleMobileNav} setDarkMode={setDarkMode} />} />
         </Routes>
       </div>

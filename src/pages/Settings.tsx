@@ -9,8 +9,8 @@ interface SettingsProps {
 
 export default function Settings({ darkMode, onMenuClick, setDarkMode }: SettingsProps) {
   return (
-    <main className="flex-1 p-4 md:p-8">
-      <div className="flex items-center justify-between mb-6 md:mb-8">
+    <main className={`flex-1 p-4 md:p-8 min-h-screen ${darkMode ? "bg-gray-900" : "bg-gray-50"}`}>
+      <div className="flex items-center justify-between mb-6 md:mb-8 pt-4 lg:pt-6">
         <div className="flex items-center justify-between w-full lg:w-auto">
           <h2 className={`text-2xl md:text-3xl font-bold font-sans ${
             darkMode ? "text-white" : "text-gray-800"
@@ -83,7 +83,9 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
           }`}>Account</h3>
           
           <div className="space-y-4">
-            <button className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <button className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors ${
+              darkMode ? "hover:bg-gray-700" : "hover:bg-gray-50"
+            }`}>
               <div className="flex items-center space-x-3">
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                   darkMode ? "bg-gray-700" : "bg-gray-100"
@@ -100,7 +102,9 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
               </svg>
             </button>
 
-            <button className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <button className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors ${
+              darkMode ? "hover:bg-gray-700" : "hover:bg-gray-50"
+            }`}>
               <div className="flex items-center space-x-3">
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                   darkMode ? "bg-gray-700" : "bg-gray-100"
@@ -235,7 +239,9 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
           }`}>Support</h3>
           
           <div className="space-y-4">
-            <button className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <button className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors ${
+              darkMode ? "hover:bg-gray-700" : "hover:bg-gray-50"
+            }`}>
               <div className="flex items-center space-x-3">
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                   darkMode ? "bg-gray-700" : "bg-gray-100"

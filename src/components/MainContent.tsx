@@ -4,6 +4,7 @@ import {
   FiFileText,
   FiCopy,
   FiPlus,
+  FiDollarSign,
 } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
@@ -30,11 +31,13 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
   };
 
   return (
-    <main className="flex-1 bg-gray-50 min-h-screen lg:bg-transparent">
+    <main className={`flex-1 min-h-screen lg:bg-transparent ${
+      darkMode ? "bg-gray-900" : "bg-gray-50"
+    }`}>
       <Header title="Home" onMenuClick={onMenuClick} darkMode={darkMode} />
 
       {/* Dashboard Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-8 px-4 lg:px-8">
+      <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-6 px-4 lg:px-6 xl:px-8">
         {/* Left section - Mobile: full width, Desktop: 3 columns */}
         <div className="lg:col-span-3 space-y-6">
           {/* Account info */}
@@ -79,10 +82,10 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
           }`}>Quick actions</h4>
           <div className="grid grid-cols-4 gap-4">
             {[
-              { icon: <FiRotateCcw className="w-6 h-6" />, label: "Withdraw", path: "/transaction" },
-              { icon: <FiRotateCcw className="w-6 h-6" />, label: "Deposit", path: "/transaction" },
+              { icon: <FiDollarSign className="w-6 h-6" />, label: "Withdraw", path: "/withdraw" },
+              { icon: <FiDollarSign className="w-6 h-6" />, label: "Deposit", path: "/deposit" },
               { icon: <FiLock className="w-6 h-6" />, label: "Escrow", path: "/escrow" },
-              { icon: <FiFileText className="w-6 h-6" />, label: "History", path: "/transaction" },
+              { icon: <FiFileText className="w-6 h-6" />, label: "History", path: "/history" },
             ].map((action, i) => (
               <button
                 key={i}
@@ -107,11 +110,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
         </div>
 
         {/* Promotional section */}
-        <div className={`p-6 rounded-3xl flex items-center justify-between ${
-          darkMode 
-            ? "bg-gradient-to-r from-gray-800 to-gray-700" 
-            : "bg-gradient-to-r from-orange-100 to-orange-50"
-        }`}>
+        <div className="p-6 rounded-3xl flex items-center justify-between bg-gradient-to-r from-orange-100 to-orange-50">
           <div className="flex-1">
             <div className="flex items-center mb-2">
               <img 

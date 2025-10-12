@@ -7,8 +7,8 @@ interface TransactionProps {
 
 export default function Transaction({ darkMode, onMenuClick }: TransactionProps) {
   return (
-    <main className="flex-1 p-4 md:p-8">
-      <div className="flex items-center justify-between mb-6 md:mb-8">
+    <main className={`flex-1 p-4 md:p-8 min-h-screen ${darkMode ? "bg-gray-900" : "bg-gray-50"}`}>
+      <div className="flex items-center justify-between mb-6 md:mb-8 pt-4 lg:pt-6">
         <div className="flex items-center justify-between w-full lg:w-auto">
           <h2 className={`text-2xl md:text-3xl font-bold font-sans ${
             darkMode ? "text-white" : "text-gray-800"
