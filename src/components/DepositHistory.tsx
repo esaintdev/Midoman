@@ -1,5 +1,3 @@
-import { FiCreditCard } from "react-icons/fi";
-
 interface DepositHistoryProps {
   darkMode: boolean;
 }
@@ -12,14 +10,12 @@ export default function DepositHistory({ darkMode }: DepositHistoryProps) {
       }`}>Deposit history</h4>
 
       <div className="flex flex-col items-center text-center space-y-6 py-16">
-        <div className={`w-20 h-20 rounded-full flex items-center justify-center ${
-          darkMode ? "bg-blue-900" : "bg-blue-50"
-        }`}>
-          <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-            darkMode ? "bg-blue-800" : "bg-blue-100"
-          }`}>
-            <FiCreditCard className="w-6 h-6 text-blue-600" />
-          </div>
+        <div className="w-40 h-40 rounded-full flex items-center justify-center">
+          <img 
+            src="/Deposit.png" 
+            alt="Deposit Icon" 
+            className="w-36 h-36 object-contain"
+          />
         </div>
         <div>
           <p className={`font-semibold font-sans mb-2 ${
