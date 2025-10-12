@@ -1,5 +1,4 @@
 import {
-  FiRotateCcw,
   FiLock,
   FiFileText,
   FiCopy,
