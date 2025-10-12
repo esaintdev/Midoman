@@ -51,9 +51,15 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
                   <FiCopy className="w-4 h-4 opacity-70 cursor-pointer hover:opacity-100" />
                 </div>
               </div>
-              <button className="bg-white bg-opacity-20 border border-white border-opacity-30 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl font-medium font-sans hover:bg-opacity-30 flex items-center justify-center gap-2 text-sm md:text-base">
-                <FiPlus className="w-4 h-4" /> Generate Account
-              </button>
+              <div className="relative">
+                {/* Background button */}
+                <div className="absolute inset-0 bg-gray-50 rounded-2xl transform -translate-y-3 -translate-x-3.5 w-68 h-24 px-6 md:px-8 py-4 md:py-5"></div>
+                
+                {/* Main button */}
+                <button className="relative bg-white bg-opacity-95 border-2 border-dashed border-blue-300 text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-2xl font-medium font-sans hover:bg-opacity-100 hover:border-solid hover:border-blue-400 hover:shadow-lg transition-all flex items-center justify-center gap-2 text-sm md:text-base">
+                  <FiPlus className="w-5 h-5" /> Generate Account
+                </button>
+              </div>
             </div>
           </div>
 

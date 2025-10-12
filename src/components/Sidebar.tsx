@@ -83,7 +83,7 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
           </Link>
         </nav>
 
-        <div className="mt-8">
+        <div className="mt-25">
           <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium font-sans hover:bg-blue-700 flex items-center justify-center gap-2">
             <FiPlus className="w-4 h-4" /> New features
           </button>
