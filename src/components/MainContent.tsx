@@ -125,7 +125,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
               Fund 100%<br />Secured
             </h5>
           </div>
-          <div className="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0">
+          <div className="w-40 h-40 rounded-2xl overflow-hidden flex-shrink-0">
             <img 
               src="/man.png" 
               alt="Person with checkered shirt" 
