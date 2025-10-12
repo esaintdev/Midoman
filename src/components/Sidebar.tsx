@@ -24,13 +24,12 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
   return (
     <aside className={`${darkMode ? "bg-gray-800" : "bg-white"} w-64 flex-col justify-between p-6 h-screen hidden lg:flex`}>
       <div>
-        <div className="flex items-center gap-2 mb-12">
+        <div className="flex items-center mb-12">
           <img 
-            src="/logo.png" 
+            src={darkMode ? "/dark.png" : "/logo.png"}
             alt="Midoman Logo" 
-            className="w-8 h-8 object-contain"
+            className="w-30 h-12 object-contain"
           />
-          <h1 className="text-xl font-bold font-sans text-gray-800">Midoman</h1>
         </div>
         
         <nav className="space-y-2">
@@ -39,7 +38,9 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium font-sans transition ${
               isActive("/") 
                 ? "bg-blue-600 text-white" 
-                : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
+                : darkMode 
+                  ? "text-gray-300 hover:text-blue-400 hover:bg-gray-700" 
+                  : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
             }`}
           >
             <FiHome className="w-5 h-5" /> Home
@@ -49,7 +50,9 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium font-sans transition ${
               isActive("/escrow") 
                 ? "bg-blue-600 text-white" 
-                : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
+                : darkMode 
+                  ? "text-gray-300 hover:text-blue-400 hover:bg-gray-700" 
+                  : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
             }`}
           >
             <FiLock className="w-5 h-5" /> Escrow
@@ -59,7 +62,9 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium font-sans transition ${
               isActive("/transaction") 
                 ? "bg-blue-600 text-white" 
-                : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
+                : darkMode 
+                  ? "text-gray-300 hover:text-blue-400 hover:bg-gray-700" 
+                  : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
             }`}
           >
             <FiCreditCard className="w-5 h-5" /> Transaction
@@ -69,7 +74,9 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium font-sans transition ${
               isActive("/settings") 
                 ? "bg-blue-600 text-white" 
-                : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
+                : darkMode 
+                  ? "text-gray-300 hover:text-blue-400 hover:bg-gray-700" 
+                  : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
             }`}
           >
             <FiSettings className="w-5 h-5" /> Settings
@@ -98,7 +105,11 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
             <FiRotateCcw className="w-5 h-5" />
           </button>
         </div>
-        <button className="w-full text-red-500 flex items-center gap-2 hover:text-red-600 px-4 py-2 font-medium font-sans">
+        <button className={`w-full flex items-center gap-2 px-4 py-2 font-medium font-sans transition ${
+          darkMode 
+            ? "text-red-400 hover:text-red-300" 
+            : "text-red-500 hover:text-red-600"
+        }`}>
           <FiLogOut className="w-5 h-5" /> Log out
         </button>
       </div>

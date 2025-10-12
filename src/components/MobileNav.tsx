@@ -42,27 +42,23 @@ export default function MobileNav({ isOpen, onClose, darkMode, setDarkMode }: Mo
       
       {/* Mobile Navigation - Full Screen Overlay */}
       <div className="fixed inset-0 z-50 lg:hidden">
-        <div className="bg-white h-full flex flex-col">
+        <div className={`${darkMode ? "bg-gray-900" : "bg-white"} h-full flex flex-col`}>
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-100">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg p-2">
-                <img 
-                  src="/logo.png" 
-                  alt="Midoman Logo" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold font-sans text-gray-900">Midoman</h1>
-                <p className="text-sm text-gray-500 font-sans">Dashboard</p>
-              </div>
+          <div className={`flex items-center justify-between p-6 border-b ${darkMode ? "border-gray-700" : "border-gray-100"}`}>
+            <div className="flex items-center">
+              <img 
+                src={darkMode ? "/dark.png" : "/logo.png"}
+                alt="Midoman Logo" 
+                className="w-30 h-14 object-contain"
+              />
             </div>
             <button
               onClick={onClose}
-              className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className={`p-3 rounded-full transition-colors ${
+                darkMode ? "bg-gray-800 hover:bg-gray-700" : "bg-gray-100 hover:bg-gray-200"
+              }`}
             >
-              <FiX className="w-6 h-6 text-gray-600" />
+              <FiX className={`w-6 h-6 ${darkMode ? "text-gray-300" : "text-gray-600"}`} />
             </button>
           </div>
           
@@ -81,7 +77,9 @@ export default function MobileNav({ isOpen, onClose, darkMode, setDarkMode }: Mo
                     className={`flex items-center justify-between p-4 rounded-2xl transition-all duration-200 ${
                       active 
                         ? "bg-blue-50 border-2 border-blue-200 shadow-sm" 
-                        : "bg-gray-50 hover:bg-gray-100 border-2 border-transparent"
+                        : darkMode
+                          ? "bg-gray-800 hover:bg-gray-700 border-2 border-transparent"
+                          : "bg-gray-50 hover:bg-gray-100 border-2 border-transparent"
                     }`}
                   >
                     <div className="flex items-center gap-4">
@@ -89,10 +87,10 @@ export default function MobileNav({ isOpen, onClose, darkMode, setDarkMode }: Mo
                         <Icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className={`font-semibold font-sans ${active ? "text-blue-900" : "text-gray-900"}`}>
+                        <h3 className={`font-semibold font-sans ${active ? "text-blue-900" : darkMode ? "text-gray-100" : "text-gray-900"}`}>
                           {item.label}
                         </h3>
-                        <p className={`text-sm font-sans ${active ? "text-blue-600" : "text-gray-500"}`}>
+                        <p className={`text-sm font-sans ${active ? "text-blue-600" : darkMode ? "text-gray-400" : "text-gray-500"}`}>
                           {item.path === "/" && "Dashboard overview"}
                           {item.path === "/escrow" && "Secure transactions"}
                           {item.path === "/transaction" && "Payment history"}
@@ -100,7 +98,7 @@ export default function MobileNav({ isOpen, onClose, darkMode, setDarkMode }: Mo
                         </p>
                       </div>
                     </div>
-                    <FiChevronRight className={`w-5 h-5 ${active ? "text-blue-600" : "text-gray-400"}`} />
+                    <FiChevronRight className={`w-5 h-5 ${active ? "text-blue-600" : darkMode ? "text-gray-500" : "text-gray-400"}`} />
                   </Link>
                 );
               })}
@@ -108,7 +106,9 @@ export default function MobileNav({ isOpen, onClose, darkMode, setDarkMode }: Mo
 
             {/* Quick Actions */}
             <div className="mt-8">
-              <h4 className="text-sm font-semibold font-sans text-gray-500 uppercase tracking-wide mb-4">
+              <h4 className={`text-sm font-semibold font-sans uppercase tracking-wide mb-4 ${
+                darkMode ? "text-gray-400" : "text-gray-500"
+              }`}>
                 Quick Actions
               </h4>
               <div className="grid grid-cols-2 gap-3">
@@ -129,9 +129,15 @@ export default function MobileNav({ isOpen, onClose, darkMode, setDarkMode }: Mo
           </div>
 
           {/* Bottom Controls */}
-          <div className="p-6 border-t border-gray-100 bg-gray-50">
+          <div className={`p-6 border-t ${
+            darkMode 
+              ? "border-gray-700 bg-gray-800" 
+              : "border-gray-100 bg-gray-50"
+          }`}>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-sm font-medium font-sans text-gray-700">Theme</span>
+              <span className={`text-sm font-medium font-sans ${
+                darkMode ? "text-gray-300" : "text-gray-700"
+              }`}>Theme</span>
               <button
                 onClick={() => setDarkMode(!darkMode)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors ${
@@ -144,7 +150,11 @@ export default function MobileNav({ isOpen, onClose, darkMode, setDarkMode }: Mo
             </div>
             
             <button 
-              className="w-full flex items-center justify-center gap-2 p-3 text-red-600 hover:bg-red-50 rounded-xl transition-colors font-medium font-sans"
+              className={`w-full flex items-center justify-center gap-2 p-3 rounded-xl transition-colors font-medium font-sans ${
+                darkMode 
+                  ? "text-red-400 hover:bg-red-900/20" 
+                  : "text-red-600 hover:bg-red-50"
+              }`}
               onClick={onClose}
             >
               <FiLogOut className="w-5 h-5" />

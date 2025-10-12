@@ -23,7 +23,7 @@ interface MainContentProps {
 export default function MainContent({ darkMode, account, onMenuClick }: MainContentProps) {
   return (
     <main className="flex-1 p-4 md:p-8">
-      <Header title="Home" onMenuClick={onMenuClick} />
+      <Header title="Home" onMenuClick={onMenuClick} darkMode={darkMode} />
 
       {/* Dashboard grid */}
       <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 md:gap-8">
@@ -59,7 +59,9 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
 
           {/* Quick actions */}
           <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl p-4 md:p-6`}>
-            <h4 className="text-lg font-semibold font-sans mb-6 text-gray-800">Quick actions</h4>
+            <h4 className={`text-lg font-semibold font-sans mb-6 ${
+              darkMode ? "text-white" : "text-gray-800"
+            }`}>Quick actions</h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {[
                 { icon: <FiRotateCcw className="w-6 h-6" />, label: "Withdraw" },
@@ -69,42 +71,53 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
               ].map((action, i) => (
                 <button
                   key={i}
-                  className="flex flex-col items-center space-y-3 hover:text-blue-600 transition group"
+                  className={`flex flex-col items-center space-y-3 transition group ${
+                    darkMode ? "hover:text-blue-400" : "hover:text-blue-600"
+                  }`}
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-600 group-hover:bg-blue-50 group-hover:text-blue-600 transition">
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition ${
+                    darkMode 
+                      ? "bg-gray-700 text-gray-300 group-hover:bg-blue-900 group-hover:text-blue-400" 
+                      : "bg-gray-50 text-gray-600 group-hover:bg-blue-50 group-hover:text-blue-600"
+                  }`}>
                     {action.icon}
                   </div>
-                  <span className="text-sm font-medium font-sans text-gray-700">{action.label}</span>
+                  <span className={`text-sm font-medium font-sans ${
+                    darkMode ? "text-gray-300" : "text-gray-700"
+                  }`}>{action.label}</span>
                 </button>
               ))}
             </div>
           </div>
 
           {/* Promotional section */}
-          <div className="bg-gradient-to-r from-orange-100 to-orange-50 p-4 md:p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+          <div className={`p-4 md:p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0 ${
+            darkMode 
+              ? "bg-gradient-to-r from-orange-100 to-orange-50" 
+              : "bg-gradient-to-r from-orange-100 to-orange-50"
+          }`}>
             <div>
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center p-1">
-                  <img 
-                    src="/logo.png" 
-                    alt="Midoman Logo" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <span className="text-sm font-medium font-sans text-gray-600">Midoman</span>
+              <div className="flex items-center mb-2">
+                <img 
+                  src={darkMode ? "/logo.png" : "/logo.png"}
+                  alt="Midoman Logo" 
+                  className="w-30 h-8 object-contain"
+                />
               </div>
-              <h5 className="text-xl font-bold font-sans text-gray-800 mb-3">
+              <h5 className={`text-xl font-bold font-sans mb-3 ${
+                darkMode ? "text-gray-800" : "text-gray-800"
+              }`}>
                 Fund 100%<br />Secured
               </h5>
               <button className="bg-blue-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl font-medium font-sans hover:bg-blue-700 flex items-center gap-2 text-sm md:text-base">
                 Create escrow <span>→</span>
               </button>
             </div>
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden flex-shrink-0">
+            <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl overflow-hidden flex-shrink-0">
               <img 
                 src="/man.png" 
                 alt="Person with checkered shirt" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
