@@ -2,13 +2,12 @@ import { Link, useLocation } from "react-router-dom";
 import {
   FiHome,
   FiLock,
+  FiCreditCard,
   FiSettings,
   FiLogOut,
-  FiMoon,
-  FiSun,
-  FiRotateCcw,
   FiPlus,
-  FiCreditCard,
+  FiSun,
+  FiMoon,
 } from "react-icons/fi";
 
 interface SidebarProps {
@@ -83,29 +82,52 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
           </Link>
         </nav>
 
-        <div className="mt-25">
-          <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium font-sans hover:bg-blue-700 flex items-center justify-center gap-2">
-            <FiPlus className="w-4 h-4" /> New features
-          </button>
+        <div className="mt-25 flex flex-col items-center">
+          <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mb-3">
+            <FiPlus className="w-5 h-5 text-white" />
+          </div>
+          <p className={`text-sm font-medium ${
+            darkMode ? "text-gray-400" : "text-gray-500"
+          }`}>New features</p>
         </div>
       </div>
 
       <div className="space-y-4">
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className={`p-2 rounded-lg ${darkMode ? "bg-gray-700" : "bg-gray-100"}`}
-          >
-            {darkMode ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
-          </button>
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className={`p-2 rounded-lg ${darkMode ? "bg-gray-700" : "bg-gray-100"}`}
-          >
-            <FiRotateCcw className="w-5 h-5" />
-          </button>
+        <div className={`p-3 rounded-xl ${darkMode ? "bg-gray-800" : "bg-gray-50"}`}>
+          <div className="flex items-center justify-center">
+            <div className={`relative flex items-center rounded-full transition-colors duration-300 ${
+              darkMode ? "bg-gray-700" : "bg-gray-200"
+            }`} style={{ width: '72px', height: '36px', padding: '2px' }}>
+              {/* Background slider */}
+              <div className={`absolute w-8 h-8 rounded-full transition-transform duration-300 ease-in-out shadow-md ${
+                darkMode 
+                  ? "bg-blue-600 transform translate-x-8" 
+                  : "bg-white transform translate-x-0"
+              }`} style={{ top: '2px', left: '2px' }}></div>
+              
+              {/* Light mode button */}
+              <button
+                onClick={() => setDarkMode(false)}
+                className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-200 ${
+                  !darkMode ? "text-gray-600" : "text-gray-400 hover:text-gray-300"
+                }`}
+              >
+                <FiSun className="w-4 h-4" />
+              </button>
+              
+              {/* Dark mode button */}
+              <button
+                onClick={() => setDarkMode(true)}
+                className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-200 ${
+                  darkMode ? "text-white" : "text-gray-400 hover:text-gray-600"
+                }`}
+              >
+                <FiMoon className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
         </div>
-        <button className={`w-full flex items-center gap-2 px-3 xl:px-4 py-2 font-medium font-sans transition ${
+        <button className={`w-full flex items-center justify-center gap-2 px-3 xl:px-4 py-2 font-medium font-sans transition ${
           darkMode 
             ? "text-red-400 hover:text-red-300" 
             : "text-red-500 hover:text-red-600"

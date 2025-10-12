@@ -60,7 +60,7 @@ export default function Header({ title, onMenuClick, darkMode }: HeaderProps) {
             <input
               type="text"
               placeholder="Search"
-              className={`pl-12 pr-4 py-3 w-48 lg:w-64 xl:w-80 rounded-full border focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base font-sans ${
+              className={`pl-12 pr-4 py-3 w-48 lg:w-64 xl:w-80 rounded-xl border focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base font-sans ${
                 darkMode 
                   ? "bg-gray-800 border-gray-600 text-white placeholder-gray-400" 
                   : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"
