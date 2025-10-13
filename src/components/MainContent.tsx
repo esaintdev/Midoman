@@ -32,8 +32,8 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
 
   return (
     <main className={`flex-1 min-h-screen lg:bg-transparent ${
-      darkMode ? "bg-gray-900" : "bg-gray-50"
-    }`}>
+      darkMode ? "" : "bg-gray-50"
+    }`} style={darkMode ? { backgroundColor: '#242426' } : {}}>
       <Header title="Home" onMenuClick={onMenuClick} darkMode={darkMode} />
 
       {/* Dashboard Layout */}
@@ -41,7 +41,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
         {/* Left section - Mobile: full width, Desktop: 3 columns */}
         <div className="lg:col-span-3 space-y-6">
           {/* Account info */}
-          <div className="bg-blue-600 text-white rounded-3xl p-6 relative overflow-hidden">
+          <div className="text-white p-6 relative overflow-hidden" style={{ backgroundColor: '#076DF2', borderRadius: '12px' }}>
           {/* Top section */}
           <div className="flex justify-between items-start mb-8">
             <div>
@@ -67,8 +67,8 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
             </div>
             
             {/* Generate Account Button */}
-            <div className="bg-white rounded-2xl p-4 border-2 border-dashed border-blue-300">
-              <button className="text-blue-600 font-medium font-sans flex items-center gap-2 text-sm">
+            <div className="bg-white p-4 border-2 border-dashed" style={{ borderColor: '#076DF2', borderRadius: '12px' }}>
+              <button className="font-medium font-sans flex items-center gap-2 text-sm" style={{ color: '#076DF2' }}>
                 <FiPlus className="w-4 h-4" /> Generate Account
               </button>
             </div>
@@ -76,7 +76,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
           </div>
 
         {/* Quick actions */}
-        <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-3xl p-6 mb-6`}>
+        <div className={`${darkMode ? "p-6 mb-6" : "bg-white p-6 mb-6"}`} style={darkMode ? { backgroundColor: '#100F0F', borderRadius: '12px' } : { borderRadius: '12px' }}>
           <h4 className={`text-lg font-semibold font-sans mb-6 ${
             darkMode ? "text-white" : "text-gray-800"
           }`}>Quick actions</h4>
@@ -90,15 +90,28 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
               <button
                 key={i}
                 onClick={() => handleNavigation(action.path)}
-                className={`flex flex-col items-center space-y-3 transition group ${
-                  darkMode ? "hover:text-blue-400" : "hover:text-blue-600"
-                }`}
+                className="flex flex-col items-center space-y-3 transition group"
+                onMouseEnter={(e) => e.currentTarget.style.color = '#076DF2'}
+                onMouseLeave={(e) => e.currentTarget.style.color = darkMode ? '#d1d5db' : '#374151'}
               >
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition ${
-                  darkMode 
-                    ? "bg-gray-700 text-gray-300 group-hover:bg-blue-900 group-hover:text-blue-400" 
-                    : "bg-gray-50 text-gray-600 group-hover:bg-blue-50 group-hover:text-blue-600"
-                }`}>
+                <div 
+                  className={`w-12 h-12 flex items-center justify-center transition ${
+                    darkMode 
+                      ? "bg-gray-700 text-gray-300" 
+                      : "bg-gray-50 text-gray-600"
+                  }`}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = darkMode ? '#1e3a8a' : '#eff6ff';
+                    e.currentTarget.style.color = '#076DF2';
+                    e.currentTarget.style.borderRadius = '50%';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = darkMode ? '#374151' : '#f9fafb';
+                    e.currentTarget.style.color = darkMode ? '#d1d5db' : '#4b5563';
+                    e.currentTarget.style.borderRadius = '50%';
+                  }}
+                  style={{ borderRadius: '50%' }}
+                >
                   {action.icon}
                 </div>
                 <span className={`text-xs font-medium font-sans ${
@@ -110,7 +123,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
         </div>
 
         {/* Promotional section */}
-        <div className="p-6 rounded-3xl flex items-center justify-between bg-gradient-to-r from-orange-100 to-orange-50">
+        <div className="p-6 flex items-center justify-between bg-gradient-to-r from-orange-100 to-orange-50" style={{ borderRadius: '12px' }}>
           <div className="flex-1">
             <div className="flex items-center mb-2">
               <img 
@@ -119,19 +132,20 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
                 className="w-20 h-6 object-contain"
               />
             </div>
-            <h5 className={`text-xl font-bold font-sans mb-4 ${
+            <h5 className={`text-lg md:text-xl font-bold font-sans mb-4 ${
               darkMode ? "text-gray-800" : "text-gray-800"
             }`}>
-              Fund 100%<br />Secured
+              Fund 100% Secured
             </h5>
             <button 
               onClick={() => handleNavigation('/escrow')}
-              className="bg-white text-gray-800 px-6 py-3 rounded-xl font-medium font-sans flex items-center gap-2 hover:bg-gray-50 transition-colors shadow-sm"
+              className="bg-white text-gray-800 px-3 py-2 md:px-6 md:py-3 font-medium font-sans flex items-center gap-2 hover:bg-gray-50 transition-colors shadow-sm text-sm md:text-base whitespace-nowrap"
+              style={{ borderRadius: '12px' }}
             >
-              Create escrow <FiArrowRight className="w-4 h-4" />
+              Create escrow <FiArrowRight className="w-3 h-3 md:w-4 md:h-4" />
             </button>
           </div>
-          <div className="w-40 h-40 rounded-2xl overflow-hidden flex-shrink-0">
+          <div className="w-56 h-56 md:w-40 md:h-40 overflow-hidden flex-shrink-0" style={{ borderRadius: '12px' }}>
             <img 
               src="/man.png" 
               alt="Person with checkered shirt" 

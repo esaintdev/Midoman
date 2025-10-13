@@ -9,7 +9,7 @@ interface SettingsProps {
 
 export default function Settings({ darkMode, onMenuClick, setDarkMode }: SettingsProps) {
   return (
-    <main className={`flex-1 p-4 md:p-8 min-h-screen ${darkMode ? "bg-gray-900" : "bg-gray-50"}`}>
+    <main className={`flex-1 p-4 md:p-8 min-h-screen ${darkMode ? "" : "bg-gray-50"}`} style={darkMode ? { backgroundColor: '#242426' } : {}}>
       <div className="flex items-center justify-between mb-6 md:mb-8 pt-4 lg:pt-6">
         <div className="flex items-center justify-between w-full lg:w-auto">
           <h2 className={`text-2xl md:text-3xl font-bold font-sans ${
@@ -34,7 +34,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
       
       <div className="space-y-6 mb-20">
         {/* Theme Settings */}
-        <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl p-6`}>
+        <div className={`${darkMode ? "rounded-2xl p-6" : "bg-white rounded-2xl p-6"}`} style={darkMode ? { backgroundColor: '#100F0F' } : {}}>
           <h3 className={`text-lg font-semibold mb-4 ${
             darkMode ? "text-white" : "text-gray-800"
           }`}>Appearance</h3>
@@ -46,7 +46,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
                   darkMode ? "bg-gray-700" : "bg-gray-100"
                 }`}>
                   {darkMode ? (
-                    <FiMoon className={`w-5 h-5 ${darkMode ? "text-blue-400" : "text-gray-600"}`} />
+                    <FiMoon className={`w-5 h-5 ${darkMode ? "text-[#076DF2]" : "text-gray-600"}`} />
                   ) : (
                     <FiSun className={`w-5 h-5 ${darkMode ? "text-gray-400" : "text-orange-500"}`} />
                   )}
@@ -63,7 +63,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
               <button
                 onClick={() => setDarkMode(!darkMode)}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  darkMode ? "bg-blue-600" : "bg-gray-300"
+                  darkMode ? "bg-[#076DF2]" : "bg-gray-300"
                 }`}
               >
                 <span
@@ -77,7 +77,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
         </div>
 
         {/* Account Settings */}
-        <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl p-6`}>
+        <div className={`${darkMode ? "rounded-2xl p-6" : "bg-white rounded-2xl p-6"}`} style={darkMode ? { backgroundColor: '#100F0F' } : {}}>
           <h3 className={`text-lg font-semibold mb-4 ${
             darkMode ? "text-white" : "text-gray-800"
           }`}>Account</h3>
@@ -124,7 +124,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
         </div>
 
         {/* Notifications */}
-        <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl p-6`}>
+        <div className={`${darkMode ? "rounded-2xl p-6" : "bg-white rounded-2xl p-6"}`} style={darkMode ? { backgroundColor: '#100F0F' } : {}}>
           <h3 className={`text-lg font-semibold mb-4 ${
             darkMode ? "text-white" : "text-gray-800"
           }`}>Notifications</h3>
@@ -135,7 +135,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                   darkMode ? "bg-gray-700" : "bg-gray-100"
                 }`}>
-                  <FiBell className={`w-5 h-5 ${darkMode ? "text-blue-400" : "text-blue-600"}`} />
+                  <FiBell className={`w-5 h-5 ${darkMode ? "text-[#076DF2]" : "text-[#076DF2]"}`} />
                 </div>
                 <div>
                   <p className={`font-medium ${darkMode ? "text-white" : "text-gray-800"}`}>Push Notifications</p>
@@ -144,7 +144,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
               </div>
               <button
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  true ? "bg-blue-600" : "bg-gray-300"
+                  true ? "bg-[#076DF2]" : "bg-gray-300"
                 }`}
               >
                 <span
@@ -169,7 +169,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
               </div>
               <button
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  false ? "bg-blue-600" : "bg-gray-300"
+                  false ? "bg-[#076DF2]" : "bg-gray-300"
                 }`}
               >
                 <span
@@ -194,7 +194,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
               </div>
               <button
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  true ? "bg-blue-600" : "bg-gray-300"
+                  true ? "bg-[#076DF2]" : "bg-gray-300"
                 }`}
               >
                 <span
@@ -219,7 +219,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
               </div>
               <button
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  true ? "bg-blue-600" : "bg-gray-300"
+                  true ? "bg-[#076DF2]" : "bg-gray-300"
                 }`}
               >
                 <span
@@ -233,7 +233,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
         </div>
 
         {/* Support */}
-        <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl p-6`}>
+        <div className={`${darkMode ? "rounded-2xl p-6" : "bg-white rounded-2xl p-6"}`} style={darkMode ? { backgroundColor: '#100F0F' } : {}}>
           <h3 className={`text-lg font-semibold mb-4 ${
             darkMode ? "text-white" : "text-gray-800"
           }`}>Support</h3>

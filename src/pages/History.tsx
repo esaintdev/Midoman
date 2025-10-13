@@ -97,7 +97,7 @@ export default function History({ darkMode, onMenuClick }: HistoryProps) {
       case "withdraw":
         return <FiArrowUpRight className="w-4 h-4 text-red-600" />;
       case "escrow":
-        return <div className="w-4 h-4 rounded-full bg-blue-600"></div>;
+        return <div className="w-4 h-4 rounded-full bg-[#076DF2]"></div>;
       default:
         return null;
     }
@@ -115,7 +115,7 @@ export default function History({ darkMode, onMenuClick }: HistoryProps) {
   };
 
   return (
-    <main className={`flex-1 p-4 md:p-8 min-h-screen ${darkMode ? "bg-gray-900" : "bg-gray-50"}`}>
+    <main className={`flex-1 p-4 md:p-8 min-h-screen ${darkMode ? "" : "bg-gray-50"}`} style={darkMode ? { backgroundColor: '#242426' } : {}}>
       <div className="flex items-center justify-between mb-6 md:mb-8 pt-4 lg:pt-6">
         <div className="flex items-center gap-4 w-full lg:w-auto">
           <button
@@ -152,7 +152,7 @@ export default function History({ darkMode, onMenuClick }: HistoryProps) {
 
       <div className="max-w-6xl mx-auto">
         {/* Filters and Search */}
-        <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl p-6 mb-6`}>
+        <div className={`${darkMode ? "rounded-2xl p-6 mb-6" : "bg-white rounded-2xl p-6 mb-6"}`} style={darkMode ? { backgroundColor: '#242426' } : {}}>
           <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
             <div className="flex flex-wrap gap-2">
               {["all", "deposit", "withdraw", "escrow"].map((filterType) => (
@@ -161,7 +161,7 @@ export default function History({ darkMode, onMenuClick }: HistoryProps) {
                   onClick={() => setFilter(filterType as any)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition capitalize ${
                     filter === filterType
-                      ? "bg-blue-600 text-white"
+                      ? "bg-[#076DF2] text-white"
                       : darkMode
                         ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
                         : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -182,7 +182,7 @@ export default function History({ darkMode, onMenuClick }: HistoryProps) {
                   placeholder="Search transactions..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className={`w-full pl-10 pr-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none ${
+                  className={`w-full pl-10 pr-4 py-2 rounded-lg border focus:ring-2 focus:ring-[#076DF2] focus:border-transparent outline-none ${
                     darkMode 
                       ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400" 
                       : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"
@@ -205,7 +205,7 @@ export default function History({ darkMode, onMenuClick }: HistoryProps) {
         </div>
 
         {/* Transactions Table */}
-        <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl overflow-hidden mb-20`}>
+        <div className={`${darkMode ? "rounded-2xl overflow-hidden mb-20" : "bg-white rounded-2xl overflow-hidden mb-20"}`} style={darkMode ? { backgroundColor: '#242426' } : {}}>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className={`${darkMode ? "bg-gray-700" : "bg-gray-50"}`}>
@@ -237,7 +237,7 @@ export default function History({ darkMode, onMenuClick }: HistoryProps) {
                   </th>
                 </tr>
               </thead>
-              <tbody className={`${darkMode ? "bg-gray-800" : "bg-white"} divide-y ${
+              <tbody className={`${darkMode ? "divide-y" : "bg-white divide-y"} ${
                 darkMode ? "divide-gray-700" : "divide-gray-200"
               }`}>
                 {filteredTransactions.length === 0 ? (

@@ -28,7 +28,7 @@ export default function Withdraw({ darkMode, onMenuClick }: WithdrawProps) {
   };
 
   return (
-    <main className={`flex-1 p-4 md:p-8 min-h-screen ${darkMode ? "bg-gray-900" : "bg-gray-50"}`}>
+    <main className={`flex-1 p-4 md:p-8 min-h-screen ${darkMode ? "" : "bg-gray-50"}`} style={darkMode ? { backgroundColor: '#242426' } : {}}>
       <div className="flex items-center justify-between mb-6 md:mb-8 pt-4 lg:pt-6">
         <div className="flex items-center gap-4 w-full lg:w-auto">
           <button
@@ -107,7 +107,7 @@ export default function Withdraw({ darkMode, onMenuClick }: WithdrawProps) {
                 placeholder="Enter amount to withdraw"
                 min="100"
                 required
-                className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none ${
+                className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#076DF2] focus:border-transparent outline-none ${
                   darkMode 
                     ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400" 
                     : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"
@@ -127,7 +127,7 @@ export default function Withdraw({ darkMode, onMenuClick }: WithdrawProps) {
                 onChange={(e) => setBankName(e.target.value)}
                 placeholder="Enter your bank name"
                 required
-                className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none ${
+                className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#076DF2] focus:border-transparent outline-none ${
                   darkMode 
                     ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400" 
                     : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"
@@ -147,7 +147,7 @@ export default function Withdraw({ darkMode, onMenuClick }: WithdrawProps) {
                 onChange={(e) => setAccountNumber(e.target.value)}
                 placeholder="Enter your account number"
                 required
-                className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none ${
+                className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#076DF2] focus:border-transparent outline-none ${
                   darkMode 
                     ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400" 
                     : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"
@@ -161,8 +161,9 @@ export default function Withdraw({ darkMode, onMenuClick }: WithdrawProps) {
               className={`w-full py-3 px-4 rounded-lg font-medium transition flex items-center justify-center gap-2 ${
                 loading || !amount || !bankName || !accountNumber
                   ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                  : "bg-blue-600 text-white hover:bg-blue-700"
+                  : "text-white hover:opacity-90"
               }`}
+              style={loading || !amount || !bankName || !accountNumber ? {} : { backgroundColor: '#076DF2' }}
             >
               <FiCreditCard className="w-5 h-5" />
               {loading ? "Processing..." : "Withdraw Funds"}

@@ -7,7 +7,7 @@ interface EscrowProps {
 
 export default function Escrow({ darkMode, onMenuClick }: EscrowProps) {
   return (
-    <main className={`flex-1 p-4 md:p-8 min-h-screen ${darkMode ? "bg-gray-900" : "bg-gray-50"}`}>
+    <main className={`flex-1 p-4 md:p-8 min-h-screen ${darkMode ? "" : "bg-gray-50"}`} style={darkMode ? { backgroundColor: '#242426' } : {}}>
       <div className="flex items-center justify-between mb-6 md:mb-8 pt-4 lg:pt-6">
         <div className="flex items-center justify-between w-full lg:w-auto">
           <h2 className={`text-2xl md:text-3xl font-bold font-sans ${
@@ -30,7 +30,7 @@ export default function Escrow({ darkMode, onMenuClick }: EscrowProps) {
         </div>
       </div>
       
-      <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl p-8 text-center mb-20`}>
+      <div className={`${darkMode ? "rounded-2xl p-8 text-center mb-20" : "bg-white rounded-2xl p-8 text-center mb-20"}`} style={darkMode ? { backgroundColor: '#100F0F' } : {}}>
         <h3 className={`text-xl font-semibold mb-4 ${
           darkMode ? "text-white" : "text-gray-800"
         }`}>Escrow Services</h3>

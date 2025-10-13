@@ -15,6 +15,7 @@ export default function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState<boolean>(false);
 
   const toggleMobileNav = () => {
+    console.log('toggleMobileNav called, current state:', isMobileNavOpen);
     setIsMobileNavOpen(!isMobileNavOpen);
   };
 
@@ -24,7 +25,7 @@ export default function App() {
 
   return (
     <Router>
-      <div className={`${darkMode ? "bg-gray-900 text-gray-100" : "bg-gray-50 text-gray-800"} min-h-screen flex overflow-x-hidden relative`}>
+      <div className={`${darkMode ? "text-gray-100" : "bg-gray-50 text-gray-800"} min-h-screen flex overflow-x-hidden relative`} style={darkMode ? { backgroundColor: '#242426' } : {}}>
         {/* Grid Background Effect */}
         <div className={`fixed inset-0 pointer-events-none z-0 ${
           darkMode ? "hidden" : "block"
@@ -38,14 +39,12 @@ export default function App() {
         <div className="relative z-10">
           <Sidebar darkMode={darkMode} setDarkMode={setDarkMode} />
         </div>
-        <div className="relative z-10">
-          <MobileNav 
-            isOpen={isMobileNavOpen}
-            onClose={closeMobileNav}
-            darkMode={darkMode}
-            setDarkMode={setDarkMode}
-          />
-        </div>
+        <MobileNav 
+          isOpen={isMobileNavOpen}
+          onClose={closeMobileNav}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+        />
         <div className="relative z-10 flex-1">
           <Routes>
             <Route path="/" element={<Home darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
