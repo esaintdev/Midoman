@@ -35,44 +35,49 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
       darkMode ? "" : "bg-gray-50"
     }`} style={darkMode ? { backgroundColor: '#242426' } : {}}>
       <Header title="Home" onMenuClick={onMenuClick} darkMode={darkMode} />
-
       {/* Dashboard Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-6 px-4 lg:px-6 xl:px-8">
         {/* Left section - Mobile: full width, Desktop: 3 columns */}
         <div className="lg:col-span-3 space-y-6">
           {/* Account info */}
-          <div className="text-white p-6 relative overflow-hidden" style={{ backgroundColor: '#076DF2', borderRadius: '12px' }}>
-          {/* Top section */}
-          <div className="flex justify-between items-start mb-8">
-            <div>
-              <p className="text-sm opacity-90 mb-2">Account balance</p>
-              <h3 className="text-3xl font-bold font-sans">
-                {account.balance.toFixed(2)}NGN
-              </h3>
-            </div>
-            <div className="text-right">
-              <p className="text-sm opacity-90 mb-2">Bank Name</p>
-              <p className="text-lg font-semibold font-sans">{account.bankName}</p>
-            </div>
-          </div>
-          
-          {/* Bottom section */}
-          <div className="flex justify-between items-end">
-            <div>
-              <p className="text-sm opacity-90 mb-1">Account Number</p>
-              <div className="flex items-center gap-2">
-                <p className="text-lg font-semibold font-sans">{account.accountNumber}</p>
-                <FiCopy className="w-4 h-4 opacity-70 cursor-pointer hover:opacity-100" />
+          <div className="relative w-full h-[200px] text-white overflow-hidden" style={{ backgroundColor: '#076DF2', borderRadius: '12px' }}>
+            {/* Bottom-right cut-out */}
+            <div className="absolute bottom-0 right-0 w-[200px] h-[80px] rounded-tl-xl" style={darkMode ? { backgroundColor: '#242426' } : { backgroundColor: '#f9fafb' }}></div>
+
+            {/* Content area */}
+            <div className="absolute inset-0 p-6 flex flex-col justify-between">
+              {/* Top section */}
+              <div className="flex justify-between items-start">
+                <div>
+                  <p className="text-sm opacity-90 mb-2">Account balance</p>
+                  <h3 className="text-3xl font-bold font-sans">
+                    {account.balance.toFixed(2)}NGN
+                  </h3>
+                </div>
+                <div className="text-right">
+                  <p className="text-sm opacity-90 mb-2">Bank Name</p>
+                  <p className="text-lg font-semibold font-sans">{account.bankName}</p>
+                </div>
+              </div>
+
+              {/* Bottom section */}
+              <div className="flex justify-between items-end">
+                <div>
+                  <p className="text-sm opacity-90 mb-1">Account Number</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-lg font-semibold font-sans">{account.accountNumber}</p>
+                    <FiCopy className="w-4 h-4 opacity-70 cursor-pointer hover:opacity-100" />
+                  </div>
+                </div>
+                
+                {/* Generate Account Button */}
+                <div className="bg-white p-4 border-2 border-dashed absolute bottom-4 right-4 z-10" style={{ borderColor: '#076DF2', borderRadius: '12px' }}>
+                  <button className="font-medium font-sans flex items-center gap-2 text-sm" style={{ color: '#076DF2' }}>
+                    <FiPlus className="w-4 h-4" /> Generate Account
+                  </button>
+                </div>
               </div>
             </div>
-            
-            {/* Generate Account Button */}
-            <div className="bg-white p-4 border-2 border-dashed" style={{ borderColor: '#076DF2', borderRadius: '12px' }}>
-              <button className="font-medium font-sans flex items-center gap-2 text-sm" style={{ color: '#076DF2' }}>
-                <FiPlus className="w-4 h-4" /> Generate Account
-              </button>
-            </div>
-          </div>
           </div>
 
         {/* Quick actions */}
