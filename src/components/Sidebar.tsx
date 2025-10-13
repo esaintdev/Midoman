@@ -93,8 +93,7 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
       </div>
 
       <div className="space-y-4">
-        <div className={`p-3 rounded-xl ${darkMode ? "bg-gray-800" : "bg-gray-50"}`}>
-          <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center">
             <div className={`relative flex items-center rounded-full transition-colors duration-300 ${
               darkMode ? "bg-gray-700" : "bg-gray-200"
             }`} style={{ width: '72px', height: '36px', padding: '2px' }}>
@@ -125,7 +124,6 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
                 <FiMoon className="w-4 h-4" />
               </button>
             </div>
-          </div>
         </div>
         <button className={`w-full flex items-center justify-center gap-2 px-3 xl:px-4 py-2 font-medium font-sans transition ${
           darkMode 

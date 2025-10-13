@@ -4,6 +4,7 @@ import {
   FiCopy,
   FiPlus,
   FiDollarSign,
+  FiArrowRight,
 } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
@@ -118,11 +119,17 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
                 className="w-20 h-6 object-contain"
               />
             </div>
-            <h5 className={`text-xl font-bold font-sans mb-3 ${
+            <h5 className={`text-xl font-bold font-sans mb-4 ${
               darkMode ? "text-gray-800" : "text-gray-800"
             }`}>
               Fund 100%<br />Secured
             </h5>
+            <button 
+              onClick={() => handleNavigation('/escrow')}
+              className="bg-white text-gray-800 px-6 py-3 rounded-xl font-medium font-sans flex items-center gap-2 hover:bg-gray-50 transition-colors shadow-sm"
+            >
+              Create escrow <FiArrowRight className="w-4 h-4" />
+            </button>
           </div>
           <div className="w-40 h-40 rounded-2xl overflow-hidden flex-shrink-0">
             <img 
