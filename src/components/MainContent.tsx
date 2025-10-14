@@ -33,28 +33,38 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
   return (
     <>
       <style>{`
+        .main-content-scroll {
+          scrollbar-width: thin;
+          scrollbar-color: white transparent;
+        }
         .main-content-scroll::-webkit-scrollbar {
-          width: 6px;
+          width: 12px !important;
         }
         .main-content-scroll::-webkit-scrollbar-track {
-          background: transparent;
+          background: transparent !important;
         }
         .main-content-scroll::-webkit-scrollbar-thumb {
-          background: white;
-          border-radius: 3px;
+          background: white !important;
+          border-radius: 6px !important;
+          min-height: 20px !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.1) !important;
         }
         .main-content-scroll::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 255, 255, 0.8);
+          background: rgba(255, 255, 255, 0.95) !important;
+          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.2) !important;
+        }
+        .main-content-scroll::-webkit-scrollbar-corner {
+          background: transparent !important;
         }
       `}</style>
-      <main className={`main-content-scroll flex-1 h-screen overflow-y-auto lg:bg-transparent ${
+      <main className={`flex-1 h-screen overflow-hidden lg:bg-transparent ${
         darkMode ? "" : ""
       }`} style={darkMode ? { backgroundColor: '#242426' } : { backgroundColor: '#F8F8F8' }}>
       <Header title="Home" onMenuClick={onMenuClick} darkMode={darkMode} />
       {/* Dashboard Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-6 px-4 lg:px-6 xl:px-8">
-        {/* Left section - Mobile: full width, Desktop: 3 columns */}
-        <div className="lg:col-span-3 space-y-6">
+      <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 px-4 lg:px-6 xl:px-8" style={{ height: 'calc(100vh - 120px)' }}>
+        {/* Left section - Mobile: full width, Desktop: flex-1 */}
+        <div className="main-content-scroll flex-1 lg:max-w-[50%] space-y-6 overflow-y-auto overflow-x-hidden h-full pr-3">
           {/* Account info */}
           <div className="relative w-full h-[200px] text-white overflow-hidden" style={{ backgroundColor: '#0660D3', borderRadius: '12px' }}>
             {/* Bottom-right cut-out */}
@@ -213,8 +223,8 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
         </div>
         </div>
 
-        {/* Right section - Desktop: 3 columns, Mobile: below left content */}
-        <div className="lg:col-span-3">
+        {/* Right section - Desktop: flex-1, Mobile: below left content */}
+        <div className="flex-1 lg:max-w-[50%]">
           <DepositHistory darkMode={darkMode} />
         </div>
       </div>
