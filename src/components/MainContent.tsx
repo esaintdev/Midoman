@@ -57,14 +57,14 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
           background: transparent !important;
         }
       `}</style>
-      <main className={`flex-1 h-screen overflow-hidden lg:bg-transparent ${
+      <main className={`flex-1 min-h-screen lg:h-screen lg:overflow-hidden lg:bg-transparent ${
         darkMode ? "" : ""
       }`} style={darkMode ? { backgroundColor: '#242426' } : { backgroundColor: '#F8F8F8' }}>
       <Header title="Home" onMenuClick={onMenuClick} darkMode={darkMode} />
       {/* Dashboard Layout */}
-      <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 px-4 lg:px-6 xl:px-8" style={{ height: 'calc(100vh - 120px)' }}>
+      <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 px-4 lg:px-6 xl:px-8 lg:h-full">
         {/* Left section - Mobile: full width, Desktop: flex-1 */}
-        <div className="main-content-scroll flex-1 lg:max-w-[50%] space-y-6 overflow-y-auto overflow-x-hidden h-full pr-3">
+        <div className="w-full lg:flex-1 lg:max-w-[50%] space-y-6 lg:overflow-y-auto lg:overflow-x-hidden lg:h-full lg:pr-3 main-content-scroll">
           {/* Account info */}
           <div className="relative w-full h-[200px] text-white overflow-hidden" style={{ backgroundColor: '#0660D3', borderRadius: '12px' }}>
             {/* Bottom-right cut-out */}
@@ -224,7 +224,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
         </div>
 
         {/* Right section - Desktop: flex-1, Mobile: below left content */}
-        <div className="flex-1 lg:max-w-[50%]">
+        <div className="w-full lg:flex-1 lg:max-w-[50%]">
           <DepositHistory darkMode={darkMode} />
         </div>
       </div>
