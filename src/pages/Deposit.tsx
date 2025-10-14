@@ -60,15 +60,15 @@ export default function Deposit({ darkMode, onMenuClick }: DepositProps) {
 
       <div className="max-w-2xl mx-auto">
         {/* Instructions */}
-        <div className={`${darkMode ? "bg-[#076DF2]/20" : "bg-[#076DF2]/10"} rounded-2xl p-6 mb-6`}>
+        <div className={`${darkMode ? "bg-[#0660D3]/20" : "bg-[#0660D3]/10"} rounded-2xl p-6 mb-6`}>
           <div className="flex items-start gap-3">
-            <FiInfo className="w-6 h-6 text-[#076DF2] mt-1 flex-shrink-0" />
+            <FiInfo className="w-6 h-6 text-[#0660D3] mt-1 flex-shrink-0" />
             <div>
               <h3 className={`text-lg font-semibold mb-2 ${
-                darkMode ? "text-[#076DF2]" : "text-[#076DF2]"
+                darkMode ? "text-[#0660D3]" : "text-[#0660D3]"
               }`}>How to Deposit</h3>
               <p className={`text-sm leading-relaxed ${
-                darkMode ? "text-[#076DF2]/80" : "text-[#076DF2]"
+                darkMode ? "text-[#0660D3]/80" : "text-[#0660D3]"
               }`}>
                 Transfer money to the account details below. Your deposit will be credited automatically within 5-10 minutes after confirmation.
               </p>
@@ -180,7 +180,7 @@ export default function Deposit({ darkMode, onMenuClick }: DepositProps) {
               darkMode ? "border-gray-600" : "border-gray-200"
             }`}>
               <div className="flex items-center gap-3 mb-2">
-                <FiCreditCard className="w-5 h-5 text-[#076DF2]" />
+                <FiCreditCard className="w-5 h-5 text-[#0660D3]" />
                 <h4 className={`font-medium ${darkMode ? "text-white" : "text-gray-800"}`}>
                   Bank Transfer
                 </h4>
@@ -214,25 +214,25 @@ export default function Deposit({ darkMode, onMenuClick }: DepositProps) {
           
           <div className="space-y-3">
             <div className="flex items-start gap-3">
-              <div className="w-2 h-2 rounded-full bg-[#076DF2] mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 rounded-full bg-[#0660D3] mt-2 flex-shrink-0"></div>
               <p className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
                 Minimum deposit amount is ₦100
               </p>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-2 h-2 rounded-full bg-[#076DF2] mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 rounded-full bg-[#0660D3] mt-2 flex-shrink-0"></div>
               <p className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
                 Deposits are processed automatically within 5-10 minutes
               </p>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-2 h-2 rounded-full bg-[#076DF2] mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 rounded-full bg-[#0660D3] mt-2 flex-shrink-0"></div>
               <p className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
                 No deposit fees charged
               </p>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-2 h-2 rounded-full bg-[#076DF2] mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 rounded-full bg-[#0660D3] mt-2 flex-shrink-0"></div>
               <p className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
                 Contact support if your deposit is not credited within 30 minutes
               </p>

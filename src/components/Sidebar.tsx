@@ -38,10 +38,10 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
               isActive("/") 
                 ? (darkMode ? "text-white" : "text-white") 
                 : darkMode 
-                  ? "text-gray-300 hover:text-[#076DF2] hover:bg-gray-700" 
-                  : "text-gray-600 hover:text-[#076DF2] hover:bg-[#076DF2]/10"
+                  ? "text-gray-300 hover:text-[#0660D3] hover:bg-gray-700" 
+                  : "text-[#98A2B3] hover:text-[#0660D3] hover:bg-[#0660D3]/10"
             }`}
-            style={isActive("/") ? (darkMode ? { backgroundColor: '#242426', borderRadius: '12px' } : { backgroundColor: '#076DF2', borderRadius: '12px' }) : { borderRadius: '12px' }}
+            style={isActive("/") ? (darkMode ? { backgroundColor: '#242426', borderRadius: '12px' } : { backgroundColor: '#0660D3', borderRadius: '12px' }) : { borderRadius: '12px' }}
           >
             <FiHome className="w-5 h-5" /> Home
           </Link>
@@ -51,10 +51,10 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
               isActive("/escrow") 
                 ? (darkMode ? "text-white" : "text-white") 
                 : darkMode 
-                  ? "text-gray-300 hover:text-[#076DF2] hover:bg-gray-700" 
-                  : "text-gray-600 hover:text-[#076DF2] hover:bg-[#076DF2]/10"
+                  ? "text-gray-300 hover:text-[#0660D3] hover:bg-gray-700" 
+                  : "text-[#98A2B3] hover:text-[#0660D3] hover:bg-[#0660D3]/10"
             }`}
-            style={isActive("/escrow") ? (darkMode ? { backgroundColor: '#242426', borderRadius: '12px' } : { backgroundColor: '#076DF2', borderRadius: '12px' }) : { borderRadius: '12px' }}
+            style={isActive("/escrow") ? (darkMode ? { backgroundColor: '#242426', borderRadius: '12px' } : { backgroundColor: '#0660D3', borderRadius: '12px' }) : { borderRadius: '12px' }}
           >
             <FiLock className="w-5 h-5" /> Escrow
           </Link>
@@ -64,10 +64,10 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
               isActive("/transaction") 
                 ? (darkMode ? "text-white" : "text-white") 
                 : darkMode 
-                  ? "text-gray-300 hover:text-[#076DF2] hover:bg-gray-700" 
-                  : "text-gray-600 hover:text-[#076DF2] hover:bg-[#076DF2]/10"
+                  ? "text-gray-300 hover:text-[#0660D3] hover:bg-gray-700" 
+                  : "text-[#98A2B3] hover:text-[#0660D3] hover:bg-[#0660D3]/10"
             }`}
-            style={isActive("/transaction") ? (darkMode ? { backgroundColor: '#242426', borderRadius: '12px' } : { backgroundColor: '#076DF2', borderRadius: '12px' }) : { borderRadius: '12px' }}
+            style={isActive("/transaction") ? (darkMode ? { backgroundColor: '#242426', borderRadius: '12px' } : { backgroundColor: '#0660D3', borderRadius: '12px' }) : { borderRadius: '12px' }}
           >
             <FiCreditCard className="w-5 h-5" /> Transaction
           </Link>
@@ -77,17 +77,17 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
               isActive("/settings") 
                 ? (darkMode ? "text-white" : "text-white") 
                 : darkMode 
-                  ? "text-gray-300 hover:text-[#076DF2] hover:bg-gray-700" 
-                  : "text-gray-600 hover:text-[#076DF2] hover:bg-[#076DF2]/10"
+                  ? "text-gray-300 hover:text-[#0660D3] hover:bg-gray-700" 
+                  : "text-[#98A2B3] hover:text-[#0660D3] hover:bg-[#0660D3]/10"
             }`}
-            style={isActive("/settings") ? (darkMode ? { backgroundColor: '#242426', borderRadius: '12px' } : { backgroundColor: '#076DF2', borderRadius: '12px' }) : { borderRadius: '12px' }}
+            style={isActive("/settings") ? (darkMode ? { backgroundColor: '#242426', borderRadius: '12px' } : { backgroundColor: '#0660D3', borderRadius: '12px' }) : { borderRadius: '12px' }}
           >
             <FiSettings className="w-5 h-5" /> Settings
           </Link>
         </nav>
 
         <div className="mt-25 flex flex-col items-center">
-          <div className="w-12 h-12 flex items-center justify-center mb-3" style={darkMode ? { backgroundColor: '#242426', borderRadius: '50%' } : { backgroundColor: '#076DF2', borderRadius: '50%' }}>
+          <div className="w-12 h-12 flex items-center justify-center mb-3" style={darkMode ? { backgroundColor: '#242426', borderRadius: '50%' } : { backgroundColor: '#0660D3', borderRadius: '50%' }}>
             <FiPlus className="w-5 h-5 text-white" />
           </div>
           <p className={`text-sm font-medium ${
@@ -104,7 +104,7 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
               {/* Background slider */}
               <div className={`absolute w-8 h-8 transition-transform duration-300 ease-in-out shadow-md ${
                 darkMode 
-                  ? "bg-[#076DF2] transform translate-x-8" 
+                  ? "bg-[#0660D3] transform translate-x-8" 
                   : "bg-white transform translate-x-0"
               }`} style={{ top: '2px', left: '2px', borderRadius: '50%' }}></div>
               

@@ -65,7 +65,7 @@ export default function Withdraw({ darkMode, onMenuClick }: WithdrawProps) {
 
       <div className="max-w-2xl mx-auto">
         {/* Balance Card */}
-        <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl p-6 mb-6`}>
+        <div className={`${darkMode ? "bg-black" : "bg-white"} rounded-2xl p-6 mb-6`}>
           <div className="flex items-center gap-3 mb-4">
             <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
               darkMode ? "bg-green-900" : "bg-green-50"
@@ -88,7 +88,7 @@ export default function Withdraw({ darkMode, onMenuClick }: WithdrawProps) {
         </div>
 
         {/* Withdrawal Form */}
-        <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl p-6 mb-6`}>
+        <div className={`${darkMode ? "bg-black" : "bg-white"} rounded-2xl p-6 mb-6`}>
           <h3 className={`text-lg font-semibold mb-6 ${
             darkMode ? "text-white" : "text-gray-800"
           }`}>Withdrawal Details</h3>
@@ -107,7 +107,7 @@ export default function Withdraw({ darkMode, onMenuClick }: WithdrawProps) {
                 placeholder="Enter amount to withdraw"
                 min="100"
                 required
-                className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#076DF2] focus:border-transparent outline-none ${
+                className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0660D3] focus:border-transparent outline-none ${
                   darkMode 
                     ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400" 
                     : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"
@@ -127,7 +127,7 @@ export default function Withdraw({ darkMode, onMenuClick }: WithdrawProps) {
                 onChange={(e) => setBankName(e.target.value)}
                 placeholder="Enter your bank name"
                 required
-                className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#076DF2] focus:border-transparent outline-none ${
+                className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0660D3] focus:border-transparent outline-none ${
                   darkMode 
                     ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400" 
                     : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"
@@ -147,7 +147,7 @@ export default function Withdraw({ darkMode, onMenuClick }: WithdrawProps) {
                 onChange={(e) => setAccountNumber(e.target.value)}
                 placeholder="Enter your account number"
                 required
-                className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#076DF2] focus:border-transparent outline-none ${
+                className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0660D3] focus:border-transparent outline-none ${
                   darkMode 
                     ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400" 
                     : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"
@@ -163,7 +163,7 @@ export default function Withdraw({ darkMode, onMenuClick }: WithdrawProps) {
                   ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                   : "text-white hover:opacity-90"
               }`}
-              style={loading || !amount || !bankName || !accountNumber ? {} : { backgroundColor: '#076DF2' }}
+              style={loading || !amount || !bankName || !accountNumber ? {} : { backgroundColor: '#0660D3' }}
             >
               <FiCreditCard className="w-5 h-5" />
               {loading ? "Processing..." : "Withdraw Funds"}
@@ -172,7 +172,7 @@ export default function Withdraw({ darkMode, onMenuClick }: WithdrawProps) {
         </div>
 
         {/* Transaction Fee Info */}
-        <div className={`${darkMode ? "bg-gray-800" : "bg-white"} rounded-2xl p-6 mb-20`}>
+        <div className={`${darkMode ? "bg-black" : "bg-white"} rounded-2xl p-6 mb-20`}>
           <h3 className={`text-lg font-semibold mb-4 ${
             darkMode ? "text-white" : "text-gray-800"
           }`}>Transaction Information</h3>

@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import MobileNav from "./components/MobileNav";
 import Home from "./pages/Home";
-import Escrow from "./pages/Escrow";
-import Transaction from "./pages/Transaction";
+// import Escrow from "./pages/Escrow";
+// import Transaction from "./pages/Transaction";
 import Settings from "./pages/Settings";
-import Withdraw from "./pages/Withdraw";
-import Deposit from "./pages/Deposit";
-import History from "./pages/History";
+// import Withdraw from "./pages/Withdraw";
+// import Deposit from "./pages/Deposit";
+// import History from "./pages/History";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(false);
@@ -48,11 +48,11 @@ export default function App() {
         <div className="relative z-10 flex-1">
           <Routes>
             <Route path="/" element={<Home darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
-            <Route path="/escrow" element={<Escrow darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
-            <Route path="/transaction" element={<Transaction darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
-            <Route path="/withdraw" element={<Withdraw darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
-            <Route path="/deposit" element={<Deposit darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
-            <Route path="/history" element={<History darkMode={darkMode} onMenuClick={toggleMobileNav} />} />
+            {/* <Route path="/escrow" element={<Escrow darkMode={darkMode} onMenuClick={toggleMobileNav} />} /> */}
+            {/* <Route path="/transaction" element={<Transaction darkMode={darkMode} onMenuClick={toggleMobileNav} />} /> */}
+            {/* <Route path="/withdraw" element={<Withdraw darkMode={darkMode} onMenuClick={toggleMobileNav} />} /> */}
+            {/* <Route path="/deposit" element={<Deposit darkMode={darkMode} onMenuClick={toggleMobileNav} />} /> */}
+            {/* <Route path="/history" element={<History darkMode={darkMode} onMenuClick={toggleMobileNav} />} /> */}
             <Route path="/settings" element={<Settings darkMode={darkMode} onMenuClick={toggleMobileNav} setDarkMode={setDarkMode} />} />
           </Routes>
         </div>

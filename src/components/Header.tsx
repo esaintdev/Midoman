@@ -52,7 +52,7 @@ export default function Header({ title, onMenuClick, darkMode }: HeaderProps) {
 
       {/* Desktop Header */}
       <div className="hidden lg:flex lg:items-center lg:justify-between lg:w-full">
-        <h2 className={`text-2xl md:text-3xl font-bold font-sans ${
+        <h2 className={`text-2xl md:text-3xl font-bold font-sans ml-6 ${
           darkMode ? "text-white" : "text-gray-800"
         }`}>{title}</h2>
         
@@ -64,7 +64,7 @@ export default function Header({ title, onMenuClick, darkMode }: HeaderProps) {
             <input
               type="text"
               placeholder="Search"
-              className={`pl-12 pr-4 py-3 w-48 lg:w-64 xl:w-80 border focus:ring-2 focus:ring-[#076DF2] focus:border-transparent outline-none text-base font-sans ${
+              className={`pl-12 pr-4 py-3 w-48 lg:w-64 xl:w-80 border focus:ring-2 focus:ring-[#0660D3] focus:border-transparent outline-none text-base font-sans ${
                 darkMode 
                   ? "border-gray-600 text-white placeholder-gray-400" 
                   : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"

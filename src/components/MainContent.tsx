@@ -31,18 +31,34 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
   };
 
   return (
-    <main className={`flex-1 min-h-screen lg:bg-transparent ${
-      darkMode ? "" : "bg-gray-50"
-    }`} style={darkMode ? { backgroundColor: '#242426' } : {}}>
+    <>
+      <style>{`
+        .main-content-scroll::-webkit-scrollbar {
+          width: 6px;
+        }
+        .main-content-scroll::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .main-content-scroll::-webkit-scrollbar-thumb {
+          background: white;
+          border-radius: 3px;
+        }
+        .main-content-scroll::-webkit-scrollbar-thumb:hover {
+          background: rgba(255, 255, 255, 0.8);
+        }
+      `}</style>
+      <main className={`main-content-scroll flex-1 h-screen overflow-y-auto lg:bg-transparent ${
+        darkMode ? "" : ""
+      }`} style={darkMode ? { backgroundColor: '#242426' } : { backgroundColor: '#F8F8F8' }}>
       <Header title="Home" onMenuClick={onMenuClick} darkMode={darkMode} />
       {/* Dashboard Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-6 px-4 lg:px-6 xl:px-8">
         {/* Left section - Mobile: full width, Desktop: 3 columns */}
         <div className="lg:col-span-3 space-y-6">
           {/* Account info */}
-          <div className="relative w-full h-[200px] text-white overflow-hidden" style={{ backgroundColor: '#076DF2', borderRadius: '12px' }}>
+          <div className="relative w-full h-[200px] text-white overflow-hidden" style={{ backgroundColor: '#0660D3', borderRadius: '12px' }}>
             {/* Bottom-right cut-out */}
-            <div className="absolute bottom-0 right-0 w-[200px] h-[80px] rounded-tl-xl" style={darkMode ? { backgroundColor: '#242426' } : { backgroundColor: '#f9fafb' }}></div>
+            <div className="absolute bottom-0 right-0 w-[200px] h-[80px] rounded-tl-xl" style={darkMode ? { backgroundColor: '#242426' } : { backgroundColor: '#F8F8F8' }}></div>
 
             {/* Content area */}
             <div className="absolute inset-0 p-6 flex flex-col justify-between">
@@ -71,8 +87,8 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
                 </div>
                 
                 {/* Generate Account Button */}
-                <div className="bg-white p-4 border-2 border-dashed absolute bottom-4 right-4 z-10" style={{ borderColor: '#076DF2', borderRadius: '12px' }}>
-                  <button className="font-medium font-sans flex items-center gap-2 text-sm" style={{ color: '#076DF2' }}>
+                <div className="bg-white p-4 border-2 border-dashed absolute bottom-4 right-4 z-10" style={{ borderColor: '#0660D3', borderRadius: '12px' }}>
+                  <button className="font-medium font-sans flex items-center gap-2 text-sm" style={{ color: '#0660D3' }}>
                     <FiPlus className="w-4 h-4" /> Generate Account
                   </button>
                 </div>
@@ -96,7 +112,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
                 key={i}
                 onClick={() => handleNavigation(action.path)}
                 className="flex flex-col items-center space-y-3 transition group"
-                onMouseEnter={(e) => e.currentTarget.style.color = '#076DF2'}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#0660D3'}
                 onMouseLeave={(e) => e.currentTarget.style.color = darkMode ? '#d1d5db' : '#374151'}
               >
                 <div 
@@ -107,7 +123,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
                   }`}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = darkMode ? '#1e3a8a' : '#eff6ff';
-                    e.currentTarget.style.color = '#076DF2';
+                    e.currentTarget.style.color = '#0660D3';
                     e.currentTarget.style.borderRadius = '50%';
                   }}
                   onMouseLeave={(e) => {
@@ -128,8 +144,8 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
         </div>
 
         {/* Promotional section */}
-        <div className="p-6 flex items-center justify-between bg-gradient-to-r from-orange-100 to-orange-50" style={{ borderRadius: '12px' }}>
-          <div className="flex-1">
+        <div className="relative p-6 bg-gradient-to-r from-orange-100 to-orange-50 overflow-visible mt-24" style={{ borderRadius: '12px' }}>
+          <div className="flex-1 pr-20 md:pr-24 lg:pr-32">
             <div className="flex items-center mb-2">
               <img 
                 src={darkMode ? "/logo.png" : "/logo.png"}
@@ -140,22 +156,59 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
             <h5 className={`text-lg md:text-xl font-bold font-sans mb-4 ${
               darkMode ? "text-gray-800" : "text-gray-800"
             }`}>
-              Fund 100% Secured
+              Fund 100%<br />Secured
             </h5>
             <button 
               onClick={() => handleNavigation('/escrow')}
-              className="bg-white text-gray-800 px-3 py-2 md:px-6 md:py-3 font-medium font-sans flex items-center gap-2 hover:bg-gray-50 transition-colors shadow-sm text-sm md:text-base whitespace-nowrap"
-              style={{ borderRadius: '12px' }}
+              className="bg-white px-3 py-2 md:px-6 md:py-3 font-medium font-sans flex items-center gap-2 hover:bg-gray-50 transition-colors shadow-sm text-sm md:text-base whitespace-nowrap"
+              style={{ borderRadius: '12px', color: '#444152' }}
             >
               Create escrow <FiArrowRight className="w-3 h-3 md:w-4 md:h-4" />
             </button>
           </div>
-          <div className="w-56 h-56 md:w-40 md:h-40 overflow-hidden flex-shrink-0" style={{ borderRadius: '12px' }}>
+          <div className="absolute -right-4 bottom-0 w-56 h-56 md:w-48 md:h-48 lg:w-56 lg:h-56 overflow-visible" style={{ borderRadius: '12px' }}>
             <img 
               src="/man.png" 
               alt="Person with checkered shirt" 
               className="w-full h-full object-contain"
             />
+          </div>
+        </div>
+
+        {/* Active transaction */}
+        <div className={`${darkMode ? "p-6" : "bg-white p-6"}`} style={darkMode ? { backgroundColor: '#100F0F', borderRadius: '12px' } : { borderRadius: '12px' }}>
+          <div className="flex items-center justify-between mb-4">
+            <h4 className={`text-lg font-semibold font-sans ${
+              darkMode ? "text-white" : "text-gray-800"
+            }`}>Active transaction</h4>
+            <button className={`text-sm font-medium ${
+              darkMode ? "text-gray-400" : "text-gray-500"
+            }`}>See all</button>
+          </div>
+          
+          <div className={`flex items-center justify-between p-4 rounded-lg ${
+            darkMode ? "bg-gray-800" : "bg-gray-50"
+          }`}>
+            <div className="flex items-center gap-3">
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                darkMode ? "bg-gray-700" : "bg-white"
+              }`}>
+                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </div>
+              <div>
+                <p className={`font-medium ${
+                  darkMode ? "text-white" : "text-gray-800"
+                }`}>Deposit</p>
+                <p className={`text-sm ${
+                  darkMode ? "text-gray-400" : "text-gray-500"
+                }`}>50 min ago</p>
+              </div>
+            </div>
+            <div className="text-green-600 font-semibold">
+              +20,000NGN
+            </div>
           </div>
         </div>
         </div>
@@ -168,5 +221,6 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
 
       <MobileBottomNav darkMode={darkMode} />
     </main>
+    </>
   );
 }

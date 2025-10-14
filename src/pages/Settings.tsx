@@ -46,7 +46,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
                   darkMode ? "bg-gray-700" : "bg-gray-100"
                 }`}>
                   {darkMode ? (
-                    <FiMoon className={`w-5 h-5 ${darkMode ? "text-[#076DF2]" : "text-gray-600"}`} />
+                    <FiMoon className={`w-5 h-5 ${darkMode ? "text-[#0660D3]" : "text-gray-600"}`} />
                   ) : (
                     <FiSun className={`w-5 h-5 ${darkMode ? "text-gray-400" : "text-orange-500"}`} />
                   )}
@@ -63,7 +63,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
               <button
                 onClick={() => setDarkMode(!darkMode)}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  darkMode ? "bg-[#076DF2]" : "bg-gray-300"
+                  darkMode ? "bg-[#0660D3]" : "bg-gray-300"
                 }`}
               >
                 <span
@@ -135,7 +135,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                   darkMode ? "bg-gray-700" : "bg-gray-100"
                 }`}>
-                  <FiBell className={`w-5 h-5 ${darkMode ? "text-[#076DF2]" : "text-[#076DF2]"}`} />
+                  <FiBell className={`w-5 h-5 ${darkMode ? "text-[#0660D3]" : "text-[#0660D3]"}`} />
                 </div>
                 <div>
                   <p className={`font-medium ${darkMode ? "text-white" : "text-gray-800"}`}>Push Notifications</p>
@@ -144,7 +144,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
               </div>
               <button
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  true ? "bg-[#076DF2]" : "bg-gray-300"
+                  true ? "bg-[#0660D3]" : "bg-gray-300"
                 }`}
               >
                 <span
@@ -169,7 +169,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
               </div>
               <button
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  false ? "bg-[#076DF2]" : "bg-gray-300"
+                  false ? "bg-[#0660D3]" : "bg-gray-300"
                 }`}
               >
                 <span
@@ -194,7 +194,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
               </div>
               <button
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  true ? "bg-[#076DF2]" : "bg-gray-300"
+                  true ? "bg-[#0660D3]" : "bg-gray-300"
                 }`}
               >
                 <span
@@ -219,7 +219,7 @@ export default function Settings({ darkMode, onMenuClick, setDarkMode }: Setting
               </div>
               <button
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  true ? "bg-[#076DF2]" : "bg-gray-300"
+                  true ? "bg-[#0660D3]" : "bg-gray-300"
                 }`}
               >
                 <span
