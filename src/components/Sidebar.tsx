@@ -21,17 +21,18 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <aside className={`${darkMode ? "w-56 xl:w-64 flex-col justify-between p-4 xl:p-6 h-screen hidden lg:flex" : "bg-white w-56 xl:w-64 flex-col justify-between p-4 xl:p-6 h-screen hidden lg:flex"}`} style={darkMode ? { backgroundColor: '#100F0F' } : {}}>
+    <aside className={`${darkMode ? "w-56 xl:w-64 flex-col justify-between p-4 xl:p-6 h-screen hidden lg:flex border-r border-gray-700" : "bg-white w-56 xl:w-64 flex-col justify-between p-4 xl:p-6 h-screen hidden lg:flex border-r border-gray-200"}`} style={darkMode ? { backgroundColor: '#100F0F' } : {}}>
       <div>
-        <div className="flex items-center mb-12">
+        <div className="flex items-center justify-center mb-12">
           <img 
             src={darkMode ? "/dark.png" : "/logo.png"}
             alt="Midoman Logo" 
-            className="w-30 h-12 object-contain"
+            className="object-contain"
+            style={{ width: '158px', height: '40px' }}
           />
         </div>
         
-        <nav className="space-y-2">
+        <nav className="space-y-2 flex flex-col items-center">
           <Link 
             to="/" 
             className={`w-full flex items-center gap-3 px-3 xl:px-4 py-3  font-medium font-sans transition ${

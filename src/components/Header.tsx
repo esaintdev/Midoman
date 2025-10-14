@@ -8,7 +8,7 @@ interface HeaderProps {
 
 export default function Header({ title, onMenuClick, darkMode }: HeaderProps) {
   return (
-    <div className={`flex items-center justify-between mb-6 px-4 lg:px-0 pt-4 lg:pt-6 ${darkMode ? "p-4" : ""}`} style={darkMode ? { backgroundColor: '#100F0F' } : {}}>
+    <div className={`flex items-center justify-between mb-6 px-4 lg:px-0 pt-4 lg:pt-6 border-b ${darkMode ? "p-4 border-gray-700" : "bg-white border-gray-200"}`} style={darkMode ? { backgroundColor: '#100F0F' } : {}}>
       {/* Mobile Header */}
       <div className="flex items-center justify-between w-full lg:hidden">
         <button
@@ -51,7 +51,7 @@ export default function Header({ title, onMenuClick, darkMode }: HeaderProps) {
       </div>
 
       {/* Desktop Header */}
-      <div className="hidden lg:flex lg:items-center lg:justify-between lg:w-full">
+      <div className="hidden lg:flex lg:items-center lg:justify-between lg:w-full pb-4">
         <h2 className={`text-2xl md:text-3xl font-bold font-sans ml-6 ${
           darkMode ? "text-white" : "text-gray-800"
         }`}>{title}</h2>
