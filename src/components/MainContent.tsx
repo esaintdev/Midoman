@@ -88,7 +88,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
                   <p className="text-sm sm:text-base lg:text-lg font-semibold font-sans">{account.bankName}</p>
                 </div>
               </div>
-
+              
               {/* Bottom section */}
               <div className="flex justify-between items-end">
                 <div>
@@ -112,7 +112,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
           </div>
 
         {/* Quick actions */}
-        <div className={`${darkMode ? "p-6 mb-6" : "bg-white p-6 mb-6"}`} style={darkMode ? { backgroundColor: '#100F0F', borderRadius: '12px' } : { borderRadius: '12px' }}>
+        <div className={`w-full max-w-[450px] h-[160px] sm:h-[170px] md:h-[180px] lg:h-[188px] ${darkMode ? "p-4 sm:p-6 mb-6" : "bg-white p-4 sm:p-6 mb-6"}`} style={darkMode ? { backgroundColor: '#100F0F', borderRadius: '12px' } : { borderRadius: '12px' }}>
           <h4 className={`text-lg font-semibold font-sans mb-6 ${
             darkMode ? "text-white" : "text-gray-800"
           }`}>Quick actions</h4>
@@ -159,7 +159,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
         </div>
 
         {/* Promotional section */}
-        <div className="relative p-6 bg-gradient-to-r from-orange-100 to-orange-50 overflow-visible mt-24" style={{ borderRadius: '12px' }}>
+        <div className="relative w-full max-w-[450px] h-[160px] sm:h-[170px] md:h-[180px] lg:h-[188px] p-4 sm:p-6 bg-gradient-to-r from-orange-100 to-orange-50 overflow-visible mt-24" style={{ borderRadius: '12px' }}>
           <div className="flex-1 pr-20 md:pr-24 lg:pr-32">
             <div className="flex items-center mb-2">
               <img 
@@ -191,7 +191,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
         </div>
 
         {/* Active transaction */}
-        <div className={`${darkMode ? "p-6" : "bg-white p-6"}`} style={darkMode ? { backgroundColor: '#100F0F', borderRadius: '12px' } : { borderRadius: '12px' }}>
+        <div className={`w-full max-w-[450px] h-[160px] sm:h-[170px] md:h-[180px] lg:h-[188px] ${darkMode ? "p-4 sm:p-6" : "bg-white p-4 sm:p-6"}`} style={darkMode ? { backgroundColor: '#100F0F', borderRadius: '12px' } : { borderRadius: '12px' }}>
           <div className="flex items-center justify-between mb-4">
             <h4 className={`text-lg font-semibold font-sans ${
               darkMode ? "text-white" : "text-gray-800"
