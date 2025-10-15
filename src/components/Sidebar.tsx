@@ -5,7 +5,6 @@ import {
   FiCreditCard,
   FiSettings,
   FiLogOut,
-  FiPlus,
   FiSun,
   FiMoon,
 } from "react-icons/fi";
@@ -38,65 +37,192 @@ export default function Sidebar({ darkMode, setDarkMode }: SidebarProps) {
         <nav className="space-y-2 flex flex-col items-center mt-8">
           <Link 
             to="/" 
-            className={`w-full flex items-center gap-3 px-3 xl:px-4 py-3  font-medium font-sans transition ${
+            className={`flex items-center font-medium transition ${
               isActive("/") 
                 ? (darkMode ? "text-white" : "text-white") 
                 : darkMode 
                   ? "text-gray-300 hover:text-[#0660D3] hover:bg-gray-700" 
                   : "text-[#98A2B3] hover:text-[#0660D3] hover:bg-[#0660D3]/10"
             }`}
-            style={isActive("/") ? (darkMode ? { backgroundColor: '#242426', borderRadius: '12px' } : { backgroundColor: '#0660D3', borderRadius: '12px' }) : { borderRadius: '12px' }}
+            style={isActive("/") ? (darkMode ? { 
+              backgroundColor: '#242426', 
+              borderRadius: '12px', 
+              width: '152px', 
+              height: '48px', 
+              paddingTop: '12px', 
+              paddingRight: '20px', 
+              paddingBottom: '12px', 
+              paddingLeft: '20px', 
+              gap: '12px',
+              fontFamily: 'Outfit'
+            } : { 
+              backgroundColor: '#0660D3', 
+              borderRadius: '12px', 
+              width: '152px', 
+              height: '48px', 
+              paddingTop: '12px', 
+              paddingRight: '20px', 
+              paddingBottom: '12px', 
+              paddingLeft: '20px', 
+              gap: '12px',
+              fontFamily: 'Outfit'
+            }) : { 
+              borderRadius: '12px', 
+              width: '152px', 
+              height: '48px', 
+              paddingTop: '12px', 
+              paddingRight: '20px', 
+              paddingBottom: '12px', 
+              paddingLeft: '20px', 
+              gap: '12px',
+              fontFamily: 'Outfit'
+            }}
           >
             <FiHome className="w-5 h-5" /> Home
           </Link>
           <Link 
             to="/escrow" 
-            className={`w-full flex items-center gap-3 px-3 xl:px-4 py-3  font-medium font-sans transition ${
+            className={`flex items-center font-medium transition ${
               isActive("/escrow") 
                 ? (darkMode ? "text-white" : "text-white") 
                 : darkMode 
                   ? "text-gray-300 hover:text-[#0660D3] hover:bg-gray-700" 
                   : "text-[#98A2B3] hover:text-[#0660D3] hover:bg-[#0660D3]/10"
             }`}
-            style={isActive("/escrow") ? (darkMode ? { backgroundColor: '#242426', borderRadius: '12px' } : { backgroundColor: '#0660D3', borderRadius: '12px' }) : { borderRadius: '12px' }}
+            style={isActive("/escrow") ? (darkMode ? { 
+              backgroundColor: '#242426', 
+              borderRadius: '12px', 
+              width: '152px', 
+              height: '48px', 
+              paddingTop: '12px', 
+              paddingRight: '20px', 
+              paddingBottom: '12px', 
+              paddingLeft: '20px', 
+              gap: '12px',
+              fontFamily: 'Outfit'
+            } : { 
+              backgroundColor: '#0660D3', 
+              borderRadius: '12px', 
+              width: '152px', 
+              height: '48px', 
+              paddingTop: '12px', 
+              paddingRight: '20px', 
+              paddingBottom: '12px', 
+              paddingLeft: '20px', 
+              gap: '12px',
+              fontFamily: 'Outfit'
+            }) : { 
+              borderRadius: '12px', 
+              width: '152px', 
+              height: '48px', 
+              paddingTop: '12px', 
+              paddingRight: '20px', 
+              paddingBottom: '12px', 
+              paddingLeft: '20px', 
+              gap: '12px',
+              fontFamily: 'Outfit'
+            }}
           >
             <FiLock className="w-5 h-5" /> Escrow
           </Link>
           <Link 
             to="/transaction" 
-            className={`w-full flex items-center gap-3 px-3 xl:px-4 py-3  font-medium font-sans transition ${
+            className={`flex items-center font-medium transition ${
               isActive("/transaction") 
                 ? (darkMode ? "text-white" : "text-white") 
                 : darkMode 
                   ? "text-gray-300 hover:text-[#0660D3] hover:bg-gray-700" 
                   : "text-[#98A2B3] hover:text-[#0660D3] hover:bg-[#0660D3]/10"
             }`}
-            style={isActive("/transaction") ? (darkMode ? { backgroundColor: '#242426', borderRadius: '12px' } : { backgroundColor: '#0660D3', borderRadius: '12px' }) : { borderRadius: '12px' }}
+            style={isActive("/transaction") ? (darkMode ? { 
+              backgroundColor: '#242426', 
+              borderRadius: '12px', 
+              width: '152px', 
+              height: '48px', 
+              paddingTop: '12px', 
+              paddingRight: '20px', 
+              paddingBottom: '12px', 
+              paddingLeft: '20px', 
+              gap: '12px',
+              fontFamily: 'Outfit'
+            } : { 
+              backgroundColor: '#0660D3', 
+              borderRadius: '12px', 
+              width: '152px', 
+              height: '48px', 
+              paddingTop: '12px', 
+              paddingRight: '20px', 
+              paddingBottom: '12px', 
+              paddingLeft: '20px', 
+              gap: '12px',
+              fontFamily: 'Outfit'
+            }) : { 
+              borderRadius: '12px', 
+              width: '152px', 
+              height: '48px', 
+              paddingTop: '12px', 
+              paddingRight: '20px', 
+              paddingBottom: '12px', 
+              paddingLeft: '20px', 
+              gap: '12px',
+              fontFamily: 'Outfit'
+            }}
           >
             <FiCreditCard className="w-5 h-5" /> Transaction
           </Link>
           <Link 
             to="/settings" 
-            className={`w-full flex items-center gap-3 px-3 xl:px-4 py-3  font-medium font-sans transition ${
+            className={`flex items-center font-medium transition ${
               isActive("/settings") 
                 ? (darkMode ? "text-white" : "text-white") 
                 : darkMode 
                   ? "text-gray-300 hover:text-[#0660D3] hover:bg-gray-700" 
                   : "text-[#98A2B3] hover:text-[#0660D3] hover:bg-[#0660D3]/10"
             }`}
-            style={isActive("/settings") ? (darkMode ? { backgroundColor: '#242426', borderRadius: '12px' } : { backgroundColor: '#0660D3', borderRadius: '12px' }) : { borderRadius: '12px' }}
+            style={isActive("/settings") ? (darkMode ? { 
+              backgroundColor: '#242426', 
+              borderRadius: '12px', 
+              width: '152px', 
+              height: '48px', 
+              paddingTop: '12px', 
+              paddingRight: '20px', 
+              paddingBottom: '12px', 
+              paddingLeft: '20px', 
+              gap: '12px',
+              fontFamily: 'Outfit'
+            } : { 
+              backgroundColor: '#0660D3', 
+              borderRadius: '12px', 
+              width: '152px', 
+              height: '48px', 
+              paddingTop: '12px', 
+              paddingRight: '20px', 
+              paddingBottom: '12px', 
+              paddingLeft: '20px', 
+              gap: '12px',
+              fontFamily: 'Outfit'
+            }) : { 
+              borderRadius: '12px', 
+              width: '152px', 
+              height: '48px', 
+              paddingTop: '12px', 
+              paddingRight: '20px', 
+              paddingBottom: '12px', 
+              paddingLeft: '20px', 
+              gap: '12px',
+              fontFamily: 'Outfit'
+            }}
           >
             <FiSettings className="w-5 h-5" /> Settings
           </Link>
         </nav>
 
         <div className="mt-25 flex flex-col items-center">
-          <div className="w-12 h-12 flex items-center justify-center mb-3" style={darkMode ? { backgroundColor: '#242426', borderRadius: '50%' } : { backgroundColor: '#0660D3', borderRadius: '50%' }}>
-            <FiPlus className="w-5 h-5 text-white" />
-          </div>
-          <p className={`text-sm font-medium ${
-            darkMode ? "text-gray-400" : "text-gray-500"
-          }`}>New features</p>
+          <img 
+            src="/new fab.png" 
+            alt="New Features" 
+            className="w-auto h-auto object-contain"
+          />
         </div>
       </div>
 

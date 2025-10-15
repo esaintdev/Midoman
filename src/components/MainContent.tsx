@@ -63,7 +63,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
         {/* Left section - Mobile: full width, Desktop: flex-1 */}
         <div className="w-full lg:flex-1 lg:max-w-[50%] space-y-6 lg:overflow-y-auto lg:overflow-x-hidden lg:h-full lg:pr-3 main-content-scroll">
           {/* Account info */}
-          <div className="relative text-white overflow-hidden w-full max-w-[450px] h-[200px] sm:h-[220px] md:h-[240px] lg:h-[259px]" style={{ borderRadius: '12px' }}>
+          <div className="relative text-white overflow-hidden w-full max-w-[450px] h-[200px] sm:h-[220px] md:h-[240px] lg:h-[259px] dark:bg-transparent bg-white">
             <img 
               src="/account info.png" 
               alt="Account Info" 
@@ -97,7 +97,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
                 </div>
                 
                 {/* Generate Account Button */}
-                <div className="bg-white px-4 py-3 sm:p-3 lg:p-4 border-2 border-dashed absolute bottom-4 right-4 sm:bottom-4 sm:right-4 z-10 min-w-[100px] sm:min-w-0" style={{ borderColor: '#0660D3', borderRadius: '12px' }}>
+                <div className="bg-white px-6 py-4 sm:p-3 lg:p-4 border-2 border-dashed absolute bottom-4 right-4 sm:bottom-4 sm:right-4 z-10 min-w-[120px] sm:min-w-0" style={{ borderColor: '#0660D3', borderRadius: '12px', boxShadow: '0px 15px 78.3px 0px #00000026' }}>
                   <button className="font-medium font-sans flex items-center justify-center gap-2 text-sm w-full" style={{ color: '#0660D3' }}>
                     <FiPlus className="w-4 h-4" /> 
                     <span className="hidden sm:inline">Generate Account</span>
@@ -109,7 +109,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
           </div>
 
         {/* Quick actions */}
-        <div className={`w-full max-w-[450px] h-[160px] sm:h-[170px] md:h-[180px] lg:h-[188px] ${darkMode ? "p-4 sm:p-6 mb-6" : "bg-white p-4 sm:p-6 mb-6"}`} style={darkMode ? { backgroundColor: '#100F0F', borderRadius: '12px' } : { borderRadius: '12px' }}>
+        <div className={`w-full max-w-[450px] h-[160px] sm:h-[170px] md:h-[180px] lg:h-[188px] ${darkMode ? "p-4 sm:p-6 mb-6" : "bg-white p-4 sm:p-6 mb-6"}`} style={darkMode ? { backgroundColor: '#100F0F', borderRadius: '12px', boxShadow: '0px 15px 78.3px 0px #00000026' } : { borderRadius: '12px', boxShadow: '0px 15px 78.3px 0px #00000026' }}>
           <h4 className={`text-lg font-semibold font-sans mb-6 ${
             darkMode ? "text-white" : "text-gray-800"
           }`}>Quick actions</h4>
@@ -147,9 +147,9 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
                 >
                   {action.icon}
                 </div>
-                <span className={`text-xs font-medium font-sans ${
+                <span className={`text-xs font-medium ${
                   darkMode ? "text-gray-300" : "text-gray-700"
-                }`}>{action.label}</span>
+                }`} style={{ fontFamily: 'Outfit', fontWeight: 500 }}>{action.label}</span>
               </button>
             ))}
           </div>
