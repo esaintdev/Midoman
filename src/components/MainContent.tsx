@@ -1,9 +1,6 @@
 import {
-  FiLock,
-  FiFileText,
   FiCopy,
   FiPlus,
-  FiDollarSign,
   FiArrowRight,
 } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
@@ -100,9 +97,9 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
                 </div>
                 
                 {/* Generate Account Button */}
-                <div className="bg-white p-2 sm:p-3 lg:p-4 border-2 border-dashed absolute bottom-2 right-2 sm:bottom-4 sm:right-4 z-10" style={{ borderColor: '#0660D3', borderRadius: '12px' }}>
-                  <button className="font-medium font-sans flex items-center gap-1 sm:gap-2 text-xs sm:text-sm" style={{ color: '#0660D3' }}>
-                    <FiPlus className="w-3 h-3 sm:w-4 sm:h-4" /> 
+                <div className="bg-white p-3 sm:p-3 lg:p-4 border-2 border-dashed absolute bottom-4 right-4 sm:bottom-4 sm:right-4 z-10" style={{ borderColor: '#0660D3', borderRadius: '12px' }}>
+                  <button className="font-medium font-sans flex items-center gap-2 text-sm" style={{ color: '#0660D3' }}>
+                    <FiPlus className="w-4 h-4" /> 
                     <span className="hidden sm:inline">Generate Account</span>
                     <span className="sm:hidden">Generate</span>
                   </button>
@@ -118,10 +115,10 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
           }`}>Quick actions</h4>
           <div className="grid grid-cols-4 gap-4">
             {[
-              { icon: <FiDollarSign className="w-6 h-6" />, label: "Withdraw", path: "/withdraw" },
-              { icon: <FiDollarSign className="w-6 h-6" />, label: "Deposit", path: "/deposit" },
-              { icon: <FiLock className="w-6 h-6" />, label: "Escrow", path: "/escrow" },
-              { icon: <FiFileText className="w-6 h-6" />, label: "History", path: "/history" },
+              { icon: <img src="/money-send.png" alt="Withdraw" className="w-12 h-12" />, label: "Withdraw", path: "/withdraw" },
+              { icon: <img src="/money-recive.png" alt="Deposit" className="w-12 h-12" />, label: "Deposit", path: "/deposit" },
+              { icon: <img src="/key-square.png" alt="Escrow" className="w-12 h-12" />, label: "Escrow", path: "/escrow" },
+              { icon: <img src="/receipt-2.png" alt="History" className="w-12 h-12" />, label: "History", path: "/history" },
             ].map((action, i) => (
               <button
                 key={i}

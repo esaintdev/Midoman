@@ -1,7 +1,5 @@
 import {
   FiHome,
-  FiLock,
-  FiCreditCard,
   FiSettings,
 } from "react-icons/fi";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -53,7 +51,7 @@ export default function MobileBottomNav({ darkMode }: MobileBottomNavProps) {
           <div className={`w-6 h-6 mb-1 ${
             isActiveRoute("/escrow") ? "text-[#0660D3]" : (darkMode ? "text-gray-400" : "text-gray-400")
           }`}>
-            <FiLock className="w-full h-full" />
+            <img src="/key-square.png" alt="Escrow" className="w-full h-full" />
           </div>
           <span className={`text-xs font-medium ${
             isActiveRoute("/escrow") ? "text-[#0660D3]" : (darkMode ? "text-gray-400" : "text-gray-400")
@@ -80,7 +78,7 @@ export default function MobileBottomNav({ darkMode }: MobileBottomNavProps) {
           <div className={`w-6 h-6 mb-1 ${
             isActiveRoute("/transaction") ? "text-[#0660D3]" : (darkMode ? "text-gray-400" : "text-gray-400")
           }`}>
-            <FiCreditCard className="w-full h-full" />
+            <img src="/receipt-2.png" alt="Transaction" className="w-full h-full" />
           </div>
           <span className={`text-xs font-medium ${
             isActiveRoute("/transaction") ? "text-[#0660D3]" : (darkMode ? "text-gray-400" : "text-gray-400")
