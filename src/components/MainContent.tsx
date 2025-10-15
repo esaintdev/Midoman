@@ -59,9 +59,9 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
       }`} style={darkMode ? { backgroundColor: '#242426' } : { backgroundColor: '#F8F8F8' }}>
       <Header title="Home" onMenuClick={onMenuClick} darkMode={darkMode} />
       {/* Dashboard Layout */}
-      <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 px-4 lg:px-6 xl:px-8 lg:h-full pb-20 lg:pb-0">
+      <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 px-4 lg:px-6 xl:px-8 lg:h-full pb-20 lg:pb-0 pt-4 lg:pt-0">
         {/* Left section - Mobile: full width, Desktop: flex-1 */}
-        <div className="w-full lg:flex-1 lg:max-w-[50%] space-y-6 lg:overflow-y-auto lg:overflow-x-hidden lg:h-full lg:pr-3 main-content-scroll mt-4 lg:mt-0">
+        <div className="w-full lg:flex-1 lg:max-w-[50%] space-y-6 lg:overflow-y-auto lg:overflow-x-hidden lg:h-full lg:pr-3 main-content-scroll mt-8 lg:mt-0 pt-safe">
           {/* Account info */}
           <div className="relative text-white overflow-hidden w-full max-w-[450px] h-[200px] sm:h-[220px] md:h-[240px] lg:h-[259px] dark:bg-transparent bg-white">
             <img 
