@@ -97,8 +97,8 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
                 </div>
                 
                 {/* Generate Account Button */}
-                <div className="bg-white p-3 sm:p-3 lg:p-4 border-2 border-dashed absolute bottom-4 right-4 sm:bottom-4 sm:right-4 z-10" style={{ borderColor: '#0660D3', borderRadius: '12px' }}>
-                  <button className="font-medium font-sans flex items-center gap-2 text-sm" style={{ color: '#0660D3' }}>
+                <div className="bg-white px-4 py-3 sm:p-3 lg:p-4 border-2 border-dashed absolute bottom-4 right-4 sm:bottom-4 sm:right-4 z-10 min-w-[100px] sm:min-w-0" style={{ borderColor: '#0660D3', borderRadius: '12px' }}>
+                  <button className="font-medium font-sans flex items-center justify-center gap-2 text-sm w-full" style={{ color: '#0660D3' }}>
                     <FiPlus className="w-4 h-4" /> 
                     <span className="hidden sm:inline">Generate Account</span>
                     <span className="sm:hidden">Generate</span>
