@@ -66,7 +66,7 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
         {/* Left section - Mobile: full width, Desktop: flex-1 */}
         <div className="w-full lg:flex-1 lg:max-w-[50%] space-y-6 lg:overflow-y-auto lg:overflow-x-hidden lg:h-full lg:pr-3 main-content-scroll">
           {/* Account info */}
-          <div className="relative text-white overflow-hidden" style={{ width: '450px', height: '259px', borderRadius: '12px' }}>
+          <div className="relative text-white overflow-hidden w-full max-w-[450px] h-[200px] sm:h-[220px] md:h-[240px] lg:h-[259px]" style={{ borderRadius: '12px' }}>
             <img 
               src="/account info.png" 
               alt="Account Info" 
@@ -74,35 +74,37 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
             />
 
             {/* Content area overlay */}
-            <div className="absolute inset-0 p-6 flex flex-col justify-between">
+            <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-between">
               {/* Top section */}
               <div className="flex justify-between items-start">
                 <div>
-                  <p className="text-sm opacity-90 mb-2">Account balance</p>
-                  <h3 className="text-3xl font-bold font-sans">
+                  <p className="text-xs sm:text-sm opacity-90 mb-1 sm:mb-2">Account balance</p>
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-sans">
                     {account.balance.toFixed(2)}NGN
                   </h3>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm opacity-90 mb-2">Bank Name</p>
-                  <p className="text-lg font-semibold font-sans">{account.bankName}</p>
+                  <p className="text-xs sm:text-sm opacity-90 mb-1 sm:mb-2">Bank Name</p>
+                  <p className="text-sm sm:text-base lg:text-lg font-semibold font-sans">{account.bankName}</p>
                 </div>
               </div>
 
               {/* Bottom section */}
               <div className="flex justify-between items-end">
                 <div>
-                  <p className="text-sm opacity-90 mb-1">Account Number</p>
+                  <p className="text-xs sm:text-sm opacity-90 mb-1">Account Number</p>
                   <div className="flex items-center gap-2">
-                    <p className="text-lg font-semibold font-sans">{account.accountNumber}</p>
-                    <FiCopy className="w-4 h-4 opacity-70 cursor-pointer hover:opacity-100" />
+                    <p className="text-sm sm:text-base lg:text-lg font-semibold font-sans">{account.accountNumber}</p>
+                    <FiCopy className="w-3 h-3 sm:w-4 sm:h-4 opacity-70 cursor-pointer hover:opacity-100" />
                   </div>
                 </div>
                 
                 {/* Generate Account Button */}
-                <div className="bg-white p-4 border-2 border-dashed absolute bottom-4 right-4 z-10" style={{ borderColor: '#0660D3', borderRadius: '12px' }}>
-                  <button className="font-medium font-sans flex items-center gap-2 text-sm" style={{ color: '#0660D3' }}>
-                    <FiPlus className="w-4 h-4" /> Generate Account
+                <div className="bg-white p-2 sm:p-3 lg:p-4 border-2 border-dashed absolute bottom-2 right-2 sm:bottom-4 sm:right-4 z-10" style={{ borderColor: '#0660D3', borderRadius: '12px' }}>
+                  <button className="font-medium font-sans flex items-center gap-1 sm:gap-2 text-xs sm:text-sm" style={{ color: '#0660D3' }}>
+                    <FiPlus className="w-3 h-3 sm:w-4 sm:h-4" /> 
+                    <span className="hidden sm:inline">Generate Account</span>
+                    <span className="sm:hidden">Generate</span>
                   </button>
                 </div>
               </div>
