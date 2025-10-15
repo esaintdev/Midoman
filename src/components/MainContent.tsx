@@ -66,11 +66,14 @@ export default function MainContent({ darkMode, account, onMenuClick }: MainCont
         {/* Left section - Mobile: full width, Desktop: flex-1 */}
         <div className="w-full lg:flex-1 lg:max-w-[50%] space-y-6 lg:overflow-y-auto lg:overflow-x-hidden lg:h-full lg:pr-3 main-content-scroll">
           {/* Account info */}
-          <div className="relative w-full h-[200px] text-white overflow-hidden" style={{ backgroundColor: '#0660D3', borderRadius: '12px' }}>
-            {/* Bottom-right cut-out */}
-            <div className="absolute bottom-0 right-0 w-[200px] h-[80px] rounded-tl-xl" style={darkMode ? { backgroundColor: '#242426' } : { backgroundColor: '#F8F8F8' }}></div>
+          <div className="relative text-white overflow-hidden" style={{ width: '450px', height: '259px', borderRadius: '12px' }}>
+            <img 
+              src="/account info.png" 
+              alt="Account Info" 
+              className="w-full h-full object-cover"
+            />
 
-            {/* Content area */}
+            {/* Content area overlay */}
             <div className="absolute inset-0 p-6 flex flex-col justify-between">
               {/* Top section */}
               <div className="flex justify-between items-start">
