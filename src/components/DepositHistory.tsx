@@ -4,7 +4,7 @@ interface DepositHistoryProps {
 
 export default function DepositHistory({ darkMode }: DepositHistoryProps) {
   return (
-    <div className={`${darkMode ? "p-8 min-h-[600px]" : "bg-white p-8 min-h-[600px]"}`} style={darkMode ? { backgroundColor: '#100F0F', borderRadius: '12px' } : { borderRadius: '12px' }}>
+    <div className={`${darkMode ? "p-8 min-h-[600px] mt-8" : "bg-white p-8 min-h-[600px] mt-8"}`} style={darkMode ? { backgroundColor: '#100F0F', borderRadius: '12px' } : { borderRadius: '12px' }}>
       <h4 className={`text-lg font-semibold font-sans mb-8 ${
         darkMode ? "text-white" : "text-gray-800"
       }`}>Deposit history</h4>
